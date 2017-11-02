@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.canvas.*?>
@@ -25,12 +26,6 @@
          </children>
       </GridPane>
    </bottom>
-   <center>
-      <Canvas height="485.0" width="772.0" BorderPane.alignment="CENTER">
-         <effect>
-            <Shadow />
-         </effect></Canvas>
-   </center>
    <top>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -49,11 +44,20 @@
          <children>
             <Button mnemonicParsing="false" text="Undo" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Redo" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" text="Clear All" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#clearCanvas" text="Clear All" GridPane.columnIndex="5" GridPane.rowIndex="1" />
             <ColorPicker GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <ComboBox prefWidth="150.0" promptText="Font Size" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ComboBox prefHeight="31.0" prefWidth="114.0" promptText="Font Size" GridPane.rowIndex="1" />
+            <Button fx:id="textButton" mnemonicParsing="false" onAction="#setTextAsCurrentDesign" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </top>
+   <center>
+      <Canvas height="485.0" width="772.0" BorderPane.alignment="CENTER">
+         <effect>
+            <Shadow />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor></Canvas>
+   </center>
 </BorderPane>
