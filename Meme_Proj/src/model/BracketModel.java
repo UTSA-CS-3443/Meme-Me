@@ -7,11 +7,11 @@ import java.util.ArrayList;
  * ArrayList that has the players in the tournament.
  * 
  * It will define how a bracket is generated and
- * who plays in what match
+ * who plays in what match.
  * 
  * @author paul
  */
-public class BracketModel {
+public abstract class BracketModel {
 	
 	ArrayList<PlayerModel> Players;		//list of players in tournament
 	int[] Matches;					//list of rounds and number 
@@ -25,7 +25,7 @@ public class BracketModel {
 		//We are assuming a valid positive integer number of players
 		Players = players;
 		
-		//call tournament builder and setmatches method
+		//call tournament builder and set match methods
 		SeededTournamentBuilder();
 		SetMatches();
 	}
@@ -41,20 +41,9 @@ public class BracketModel {
 	}
 	
 	
-	/*
-	 * SeededTournamentBuilder is the fastest possible 
-	 * algorithm for generating a fairly seeded bracket.
-	 * 
-	 * Our implementation does not have a player seed, but 
-	 * this method creates a bracket with each player having within
-	 * one bye of the other players
-	 * 
-	 * Runtime O(n)
-	 * 
-	 * Warning: this code looks very ugly since it is unable to use
-	 * a recursive method to define it
-	 * 
-	 */
+	//Classmates: you can't just spend 20 hours rewriting
+	//	code just because this one runs a little bit faster.
+	//Me:
 	private void SeededTournamentBuilder() {
 		
 		//for ease of use later
@@ -91,7 +80,8 @@ public class BracketModel {
 			//update the children of the current position in the stack
 			if((i*2)+1 < (playNum/2)-1) {
 				
-				//just don't think about what's going on here lol
+				//you can't question the algorithm if you don't 
+				//understand it **points to brain**
 				AssignmentStack[(i*2)+1] = AssignmentStack[i] 
 						+ playNum/(2^((int) Math.floor(Math.log(i+1)/Math.log(2))));
 				AssignmentStack[(i*2)+2] = AssignmentStack[i] 
