@@ -53,7 +53,11 @@
             </GridPane>
          </top>
          <center>
-            <ImageView fx:id="imgView" fitHeight="690.0" fitWidth="970.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+            <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fx:id="imgView" fitHeight="690.0" fitWidth="970.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </StackPane>
          </center>
       </BorderPane>
    </children>

@@ -62,7 +62,7 @@ public class CreateController implements EventHandler<ActionEvent>{
 	
 		if(selected != null) {
 			String location = selected.toURI().toURL().toString();
-			System.out.println("file:" + location);
+			System.out.println("file: " + location);
 			Image img = new Image(location);
 			System.out.println("height: " +img.getHeight() + "\nWidth: " + img.getWidth());
 			imgView.setImage(img);
