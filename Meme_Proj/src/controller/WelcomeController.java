@@ -13,7 +13,7 @@ public class WelcomeController implements EventHandler<ActionEvent> {
 	public void handle(ActionEvent event) {
 		
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("../view/CreateView.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("../view/Mode.fxml"));
 			Main.stage.setScene(new Scene(root, 1000,800));
 			Main.stage.show();
 		}

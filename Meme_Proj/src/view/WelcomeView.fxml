@@ -23,22 +23,22 @@
          <children>
             <ImageView fitHeight="291.0" fitWidth="255.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER">
                <image>
-                  <Image url="@../../imageWelcome/college.jpg" />
+                  <Image url="@../../image/college.jpg" />
                </image>
             </ImageView>
             <ImageView fitHeight="221.0" fitWidth="290.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../../imageWelcome/got.jpg" />
+                  <Image url="@../../image/got.jpg" />
                </image>
             </ImageView>
             <ImageView fitHeight="219.0" fitWidth="317.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
                <image>
-                  <Image url="@../../imageWelcome/present.jpg" />
+                  <Image url="@../../image/present.jpg" />
                </image>
             </ImageView>
             <ImageView fitHeight="205.0" fitWidth="331.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../../imageWelcome/OneMeme.jpg" />
+                  <Image url="@../../image/OneMeme.jpg" />
                </image>
             </ImageView>
             <Button mnemonicParsing="false" onAction="#handle" prefHeight="54.0" prefWidth="74.0" text="GO!" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
