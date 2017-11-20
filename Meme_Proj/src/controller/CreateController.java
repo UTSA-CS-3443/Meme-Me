@@ -1,23 +1,21 @@
 package controller;
 
-import java.awt.Graphics2D;
 import java.io.File;
-import java.net.MalformedURLException;
-
-import javax.swing.JOptionPane;
-
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javafx.application.Platform;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.effect.Light.Point;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
-import javafx.stage.Popup;
+import javafx.stage.Window;
 
 public class CreateController implements EventHandler<ActionEvent>{
 
@@ -32,65 +30,63 @@ public class CreateController implements EventHandler<ActionEvent>{
 	 @FXML 
 	 private Button redo;
 	 @FXML
-	 private Button done;
-	 
+	 private Button done;	 
 	 
 	 @FXML
 	 private Button text;
 	 
 	//TODO: FILE 
-	private Image original;
+	public Image original;
 	
-	private Image saved;
+	public Image saved;
 	
-	
+	public ImageView imgView;
+
+	private Window stage;
 	
 	
 
 	@Override
 	public void handle(ActionEvent event) {
-		
-		
+		//For implements leave alone
 	}
-	
 	
 	//File Menu
 	
 	@FXML
-	public void openFunction(ActionEvent event) throws MalformedURLException {
-//		FileChooser choice = new FileChooser();
-//		choice.setTitle("Open File");
-//		@SuppressWarnings("unused")
-//		File file = choice.showOpenDialog(new Stage());		
-		
-		javafx.stage.FileChooser choice = new javafx.stage.FileChooser();
+	public void openFunction(ActionEvent event) throws IOException {		
+		FileChooser choice = new FileChooser();
 		choice.getExtensionFilters().addAll(new 
 				ExtensionFilter("Images Files", "*.png", "*.jpg", "*gif"));
 		File selected = choice.showOpenDialog(null);
-		if(selected != null) {
-			String location = (selected.toURI().toURL().toString());
-			
-			//javafx code open a image from file and view controller google it 
-					
-			javafx.scene.layout.BorderPane pane = new javafx.scene.layout.BorderPane();
-			pane.setPrefSize(750, 600);
-			javafx.scene.image.ImageView imageView = new javafx.scene.image.ImageView(location);
-			pane.setCenter(imageView);
-			
-			javafx.scene.Scene scene= new javafx.scene.Scene(pane);
-			javafx.stage.Stage stage = new javafx.stage.Stage();
-			stage.setTitle("Create Meme");
-			stage.setScene(scene);
-			stage.show();
-			
-		}
-	}
 	
+		if(selected != null) {
+			String location = selected.toURI().toURL().toString();
+			System.out.println("file: " + location);
+			Image img = new Image(location);
+			System.out.println("height: " +img.getHeight() + "\nWidth: " + img.getWidth());
+			imgView.setImage(img);
+		
+		}
+	}	
 	
 	public void saveFunction(ActionEvent event) {
 		//https://docs.oracle.com/javafx/2/ui_controls/file-chooser.htm
 				//Scroll down to saving files and read
-		
+		FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save Image");
+        System.out.println(imgView.getId());
+        
+		File file = fileChooser.showSaveDialog(stage);
+        if (file != null) {
+            try {
+                ImageIO.write(SwingFXUtils.fromFXImage(imgView.getImage(),
+                    null), "jpg", file);
+                System.out.println("Image has been successfully saved");
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }			
 	}
 	
 	public void closeFunction(ActionEvent event) {
@@ -100,30 +96,20 @@ public class CreateController implements EventHandler<ActionEvent>{
 
 	//Edit Menu
 	
-	public void undoFunction() {	}
+	public void undoFunction() {}
 	
 	public void redofunction(){}
 	
-	public void clearFunction() {} 
-	
+	public void clearFunction() {
+		
+		
+	} 
 	
 	//Tools
-	public void textFunction() {
+	public void textFunction(Point point) {
 	
 		
 	}
-	
-	
-	
-	
-	
-
-
-	
-	
-	
-	
-	
 	
 	
 	
