@@ -48,28 +48,28 @@ public abstract class BracketModel {
 		
 		//for ease of use later
 		int playNum = this.Players.size();
-		
-		//this stack will be used to keep track of the 
-		//list of indices to be reassigned
-		int[] AssignmentStack = new int[playNum/2 -1];
-		AssignmentStack[playNum/2 -1] = -1;
-		
+
 		//initialize the tournament bracket
 		//with size up to next valid exponent of 2
 		this.Tournament = new 
 				PlayerModel[(int) Math.ceil((Math.log(playNum) / Math.log(2)))];
+		
+		//this stack will be used to keep track of the 
+		//list of indices to be reassigned
+		int[] AssignmentStack = new int[playNum/2 -1];
+		AssignmentStack[this.Tournament.length/2 -1] = -1;
 
 		//pair the first and last elements in the bracket
 		this.Tournament[0] = this.Players.get(0);
 		this.Tournament[1] = this.Players.get(playNum);
 		
 		//set the first position in the stack to players/2
-		AssignmentStack[0] = playNum/2;
+		AssignmentStack[0] = this.Tournament.length/2;
 		int assignments = 1;
 		
 		//iterate over the assignment stack until all 
 		//assignments have been finished (this is the ugly part)
-		for(int i=0; i<=((playNum/2)-1); i++) {
+		for(int i=0; i<=(AssignmentStack.length); i++) {
 			
 			//place player into appropriate matches based on 
 			//assignment stack index
@@ -78,7 +78,7 @@ public abstract class BracketModel {
 			assignments++;
 			
 			//update the children of the current position in the stack
-			if((i*2)+1 < (playNum/2)-1) {
+			if((i*2)+1 < (AssignmentStack.length)) {
 				
 				//you can't question the algorithm if you don't 
 				//understand it **points to brain**
