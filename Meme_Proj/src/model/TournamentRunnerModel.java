@@ -11,8 +11,8 @@ import java.util.ArrayList;
  */
 public class TournamentRunnerModel extends BracketModel {
 
-	int CurrentMatch;		//current match being played
-	int CurrentRound;		//current round being played
+	public int CurrentMatch;		//current match being played
+	public int CurrentRound;		//current round being played
 	
 	//constructor
 	public TournamentRunnerModel(ArrayList<PlayerModel> players) {

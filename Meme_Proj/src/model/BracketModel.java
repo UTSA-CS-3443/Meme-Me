@@ -13,10 +13,10 @@ import java.util.ArrayList;
  */
 public abstract class BracketModel {
 	
-	ArrayList<PlayerModel> Players;		//list of players in tournament
-	int[] Matches;					//list of rounds and number 
+	private ArrayList<PlayerModel> Players;		//list of players in tournament
+	public int[] Matches;					//list of rounds and number 
 									//of players in the round
-	PlayerModel[] Tournament;		//the tournament bracket
+	public PlayerModel[] Tournament;		//the tournament bracket
 	
 	//Constructor
 	public BracketModel(ArrayList<PlayerModel> players) {
