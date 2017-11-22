@@ -48,9 +48,9 @@
                       </Menu>
                     </menus>
                   </MenuBar>
-                  <TextField fx:id="txtFd" prefHeight="31.0" prefWidth="345.0" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtFd" onAction="#topLine" prefHeight="31.0" prefWidth="345.0" GridPane.columnSpan="2" GridPane.rowIndex="1" />
                   <Button fx:id="top" mnemonicParsing="false" onAction="#topLine" text="Insert Top Line" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button fx:id="bottom" mnemonicParsing="false" onAction="#bottomLine" text="Insert Bottom Line" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Button fx:id="bottom" mnemonicParsing="false" text="Insert Bottom Line" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                </children>
             </GridPane>
          </top>

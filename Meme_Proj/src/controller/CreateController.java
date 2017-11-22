@@ -1,8 +1,13 @@
 package controller;
 
+import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
 import javafx.application.Platform;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -11,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -70,7 +76,20 @@ public class CreateController implements EventHandler<ActionEvent>{
 	}	
 	
 	public void saveFunction(ActionEvent event) {
-	//	https://docs.oracle.com/javase/8/javafx/graphics-tutorial/image_ops.htm#CIHFIEFJ
+		FileChooser choice = new FileChooser();
+		choice.getExtensionFilters().addAll(new 
+				ExtensionFilter("Images Files", "*.png", "*.jpg", "*.gif"));
+		File selected = choice.showSaveDialog(null);
+		if(selected != null) {
+			try {
+				WritableImage wi = new WritableImage((int)imgView.getFitWidth(),(int)imgView.getFitHeight());
+				group.snapshot(null,wi);
+				ImageIO.write(SwingFXUtils.fromFXImage(wi,null ),"png", selected);				
+			}
+			catch(IOException ex){
+				ex.printStackTrace();
+			}
+		}
 	}
 	
 	public void closeFunction(ActionEvent event) {
@@ -89,25 +108,29 @@ public class CreateController implements EventHandler<ActionEvent>{
 	} 
 	
 	//Tools			
-	
-	//button function	
+		
+	@FXML
 	public void topLine(ActionEvent event) {
-		Text text = new Text();
+		try {
+	
 		TextField txtFd  = new TextField();
-		txtFd.setText("SAY WHAT");
-		text.getText();
+		Text text = new Text();
+		txtFd.setText("Default Text");
+		
 		text.textProperty().bind(txtFd.textProperty());
+		text.getText();
 		text.setFont(Font.font("Impact",FontWeight.BOLD,70));
 		text.setFill(Color.WHITE);
 		text.setStroke(Color.BLACK);
-		text.setX(30);
+		text.setX(50);
 		text.setY(50);
 		group.getChildren().add(text);
+		}
+		catch(Exception ex) {
+			ex.printStackTrace();
+		}
 	}	
 	
-	public void bottomLine(ActionEvent event) {
-		
-	
-	}
+	//public void bottomLine(ActionEvent event) {}
 	
 }
