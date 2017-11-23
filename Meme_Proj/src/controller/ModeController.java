@@ -15,13 +15,13 @@ public class ModeController implements EventHandler<ActionEvent> {
 	
 	private	Button free;
 	private	Button tournament;
-	private	Button player;
+	private	Button playervsplayer;
 	
 	@Override
 	public void handle(ActionEvent arg0) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../view/CreateView.fxml"));
-			Main.stage.setScene(new Scene(root, 1000, 790));
+			Main.stage.setScene(new Scene(root, 1000, 800));
 			Main.stage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -35,7 +35,7 @@ public class ModeController implements EventHandler<ActionEvent> {
 	public void tournamenthandle(ActionEvent event) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../view/CreateView.fxml"));
-			Main.stage.setScene(new Scene(root, 1000, 790));
+			Main.stage.setScene(new Scene(root, 1000, 800));
 			Main.stage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -48,7 +48,7 @@ public class ModeController implements EventHandler<ActionEvent> {
 	public void playerhandle(ActionEvent event) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../view/CreateView.fxml"));
-			Main.stage.setScene(new Scene(root, 1000, 790));
+			Main.stage.setScene(new Scene(root, 1000, 800));
 			Main.stage.show();
 		} catch(Exception e) {
 			e.printStackTrace();

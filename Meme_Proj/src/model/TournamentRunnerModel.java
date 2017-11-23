@@ -17,12 +17,11 @@ public class TournamentRunnerModel extends BracketModel {
 	//constructor
 	public TournamentRunnerModel(ArrayList<PlayerModel> players) {
 		super(players);
-		RunTournament();
 	}
 
 	
 	//methods
-	private void RunTournament() {		
+	public void RunTournament() {		
 		//TODO may need to set all player total votes to 0
 		
 		//call RunRound method for each Round
@@ -88,15 +87,17 @@ public class TournamentRunnerModel extends BracketModel {
 		return;
 	}
 	
-	private void ChooseWinner(PlayerModel player1, PlayerModel player2) {
+	private boolean ChooseWinner(PlayerModel player1, PlayerModel player2) {
 		//One does not simply choose a winner...
-		
+		boolean player1wins = false;
 		//compare votes and advance players to the next round
 		//tie breaker is total votes per player
 		if(player1.votes == player2.votes) {			
 			//player 1 wins
-			if(player1.totalVotes >= player2.totalVotes)
+			if(player1.totalVotes >= player2.totalVotes) {
 				this.Tournament[this.CurrentMatch+1] = null;
+				player1wins = true;
+			}
 			//player 2 wins
 			else
 				this.Tournament[this.CurrentMatch] = null;
@@ -105,6 +106,7 @@ public class TournamentRunnerModel extends BracketModel {
 		if(player1.votes >= player2.votes) {
 			//player 1 wins
 			this.Tournament[this.CurrentMatch+1] = null;
+			player1wins = true;
 		}
 				
 		else {
@@ -120,7 +122,7 @@ public class TournamentRunnerModel extends BracketModel {
 		player1.votes = 0;
 		player2.votes = 0;
 		
-		return;
+		return player1wins;
 	}
 	
 }

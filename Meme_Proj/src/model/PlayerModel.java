@@ -12,6 +12,7 @@ public class PlayerModel {
 	int votes;		//number of votes the player was given
 					//for the current match being played
 	int totalVotes;	//total votes a player has received
+					//used for tie breakers
 	String name;	//Player's name
 		
 	

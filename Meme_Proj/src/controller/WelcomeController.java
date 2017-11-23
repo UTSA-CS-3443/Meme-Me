@@ -14,6 +14,7 @@ public class WelcomeController implements EventHandler<ActionEvent> {
 		
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../view/Mode.fxml"));
+			Main.stage.setTitle("Choose A Player Mode");
 			Main.stage.setScene(new Scene(root, 1000,800));
 			Main.stage.show();
 		}
