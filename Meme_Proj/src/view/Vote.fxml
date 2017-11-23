@@ -33,7 +33,5 @@
       <TextArea layoutX="248.0" layoutY="630.0" prefHeight="44.0" prefWidth="124.0" />
       <TextArea layoutX="850.0" layoutY="630.0" prefHeight="44.0" prefWidth="124.0" />
       <Button layoutX="558.0" layoutY="724.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="124.0" text="Send" />
-      <Button layoutX="372.0" layoutY="630.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="78.0" text="Vote" />
-      <Button layoutX="974.0" layoutY="630.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="78.0" text="Vote" />
    </children>
 </AnchorPane>

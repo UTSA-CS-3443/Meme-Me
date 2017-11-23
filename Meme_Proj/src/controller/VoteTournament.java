@@ -15,7 +15,7 @@ package controller;
 
 	//playerVote1@setOnMousePressed(new EventHandler<MouseEvent>() {
 
-   // public void handle(MouseEvent event) {
+//   public void handle(MouseEvent event) {
       //  vote ++;
 
      //   System.out.println(vote);

@@ -13,15 +13,15 @@ import javafx.stage.Stage;
 
 public class ModeController implements EventHandler<ActionEvent> {
 	
-	private	Button Free;
-	private	Button Tournament;
-	private	Button PlayervsPlayer;
+	private	Button free;
+	private	Button tournament;
+	private	Button player;
 	
 	@Override
 	public void handle(ActionEvent arg0) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../view/CreateView.fxml"));
-			Main.stage.setScene(new Scene(root, 1000, 800));
+			Main.stage.setScene(new Scene(root, 1000, 790));
 			Main.stage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -30,14 +30,30 @@ public class ModeController implements EventHandler<ActionEvent> {
 		System.out.println("Free Play Clicked");
 	}
 	
-	//STILL NEEDS WORK
+	
 	
 	public void tournamenthandle(ActionEvent event) {
-		System.out.println("Tournament Clicked");
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("../view/CreateView.fxml"));
+			Main.stage.setScene(new Scene(root, 1000, 790));
+			Main.stage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 		
+		System.out.println("Tournament Clicked");	
 	}
-	//STILL NEEDS WORK
+
+	
 	public void playerhandle(ActionEvent event) {
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("../view/CreateView.fxml"));
+			Main.stage.setScene(new Scene(root, 1000, 790));
+			Main.stage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+			
+		}
 		System.out.println("Player vs. Player Clicked");
 	}
 	
