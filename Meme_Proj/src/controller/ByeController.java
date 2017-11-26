@@ -48,6 +48,7 @@ public class ByeController implements EventHandler<ActionEvent> {
 			}else {
 				controller.setUser3(this.play1);
 			}
+			controller.setUser4(this.tourn.matchNum, 1);
 			controller.setUser(this.players);
 			Main.stage.setScene(new Scene(root, 1000,800));
 			Main.stage.show();
@@ -59,8 +60,8 @@ public class ByeController implements EventHandler<ActionEvent> {
 	}
 	public void setUser3(ArrayList<PlayerModel> playerlist, int matchNum) {
 		this.players = playerlist;
-		this.tourn = new TournamentRunnerModel2(playerlist, matchNum);
-		this.iMatch = matchNum;
+		this.tourn = new TournamentRunnerModel2(playerlist, matchNum++);
+		//this.iMatch = matchNum;
 	}
 	public void setUser2(PlayerModel player1, PlayerModel player2) {
 		this.play1 = player1;

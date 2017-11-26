@@ -41,6 +41,7 @@ public class ChoosePic implements EventHandler<ActionEvent>{
 	private PlayerModel play1;
 	private PlayerModel play2;
 	private int matchIndex;
+	private int roundNum;
 	private ArrayList<PlayerModel> players = new ArrayList<PlayerModel>();
 	
 	//public ArrayList<Image> list = new ArrayList<Image>();
@@ -74,7 +75,7 @@ public class ChoosePic implements EventHandler<ActionEvent>{
 				TournCreate controller = fxmlLoader.<TournCreate>getController();
 				controller.setUser(this.saved, this.sizeTourn);
 				controller.setUser2(this.play1, this.play2);
-				controller.setUser3(this.players);
+				controller.setUser3(this.players, this.matchIndex);
 				Main.stage.setScene(new Scene(root, 1000,800));
 				Main.stage.show();
 			}
@@ -91,8 +92,12 @@ public class ChoosePic implements EventHandler<ActionEvent>{
 		this.play1 = player1;
 		this.play2 = player2;
 	}
-	public void setUser3(ArrayList<PlayerModel> playerlist) {
+	public void setUser3(ArrayList<PlayerModel> playerlist, int matchNum) {
 		this.players = playerlist;
+		this.matchIndex = matchNum;
+	}
+	public void setUser4(int roundNum) {
+		this.roundNum = roundNum;
 	}
 	public void openFunction(ActionEvent event) throws IOException {		
 		FileChooser choice = new FileChooser();

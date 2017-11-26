@@ -42,13 +42,26 @@ public class VotePage implements EventHandler<ActionEvent>{
 	private Button win;
 	private PlayerModel winner;
 	private ArrayList<PlayerModel> players = new ArrayList<PlayerModel>();
+	private int numBye;
+	private TournamentRunnerModel2 tourn;
+	
 	public void updateVotes1(ActionEvent event) {
 		this.votes1+= 1;
 		String string = Integer.toString(this.votes1);
 		this.ta1.setText(string);
 	}
+	public void updateVotesDown1(ActionEvent event) {
+		this.votes1-= 1;
+		String string = Integer.toString(this.votes1);
+		this.ta1.setText(string);
+	}
 	public void updateVotes2(ActionEvent event) {
 		this.votes2+= 1;
+		String string = Integer.toString(this.votes2);
+		this.ta2.setText(string);
+	}
+	public void updateVotesDown2(ActionEvent event) {
+		this.votes2-= 1;
 		String string = Integer.toString(this.votes2);
 		this.ta2.setText(string);
 	}
@@ -86,6 +99,7 @@ public class VotePage implements EventHandler<ActionEvent>{
 				Tourn4Controller controller = fxmlLoader.<Tourn4Controller>getController();
 				controller.setUser(this.players);
 				controller.setUser3(this.winner);
+				controller.setUser4(this.numMatch, this.numBye);
 				Main.stage.setScene(new Scene(root, 1000,800));
 				Main.stage.show();
 			}
@@ -143,8 +157,9 @@ public class VotePage implements EventHandler<ActionEvent>{
 		this.play1 = play12;
 		this.play2 = play22;
 	}
-	public void setUser3(ArrayList<PlayerModel> playerlist) {
+	public void setUser3(ArrayList<PlayerModel> playerlist, int matchNum) {
 		this.players = playerlist;
+		this.tourn = new TournamentRunnerModel2(playerlist, matchNum++);
 	}
 	public void setPics(ActionEvent event) {
 		System.out.println("Set Test");

@@ -18,7 +18,7 @@
             <ImageView fx:id="imgView2" fitHeight="500.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true" />
          </items>
       </SplitPane>
-      <Separator layoutX="617.0" orientation="VERTICAL" prefHeight="700.0" prefWidth="0.0" />
+      <Separator layoutX="617.0" orientation="VERTICAL" prefHeight="720.0" prefWidth="0.0" />
       <SplitPane layoutX="60.0" layoutY="111.0" prefHeight="500.0" prefWidth="500.0">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -31,8 +31,11 @@
       <TextArea fx:id="ta1" layoutX="248.0" layoutY="630.0" prefHeight="44.0" prefWidth="124.0" />
       <TextArea fx:id="ta2" layoutX="850.0" layoutY="630.0" prefHeight="44.0" prefWidth="124.0" />
       <Button layoutX="558.0" layoutY="724.0" mnemonicParsing="false" onAction="#sendFunction" prefHeight="39.0" prefWidth="124.0" text="Send" />
-      <Button fx:id="vote1" layoutX="372.0" layoutY="630.0" mnemonicParsing="false" onAction="#updateVotes1" prefHeight="44.0" prefWidth="78.0" text="Vote" />
-      <Button fx:id="vote2" layoutX="974.0" layoutY="630.0" mnemonicParsing="false" onAction="#updateVotes2" prefHeight="44.0" prefWidth="78.0" text="Vote" />
+      <Button fx:id="vote1" layoutX="372.0" layoutY="630.0" mnemonicParsing="false" onAction="#updateVotes1" prefHeight="44.0" prefWidth="41.0" text="+1" />
+      <Button fx:id="vote2" layoutX="974.0" layoutY="630.0" mnemonicParsing="false" onAction="#updateVotes2" prefHeight="44.0" prefWidth="47.0" text="+1" />
       <Button layoutX="14.0" layoutY="39.0" mnemonicParsing="false" onAction="#setPics" text="setPics" />
+      <Button fx:id="vote1" layoutX="414.0" layoutY="628.0" mnemonicParsing="false" onAction="#updateVotesDown1" prefHeight="46.0" prefWidth="47.0" text="-1" />
+      <Button fx:id="vote2" layoutX="1023.0" layoutY="630.0" mnemonicParsing="false" onAction="#updateVotesDown2" prefHeight="43.0" prefWidth="47.0" text="-1" />
+
    </children>
 </AnchorPane>

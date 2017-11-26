@@ -80,8 +80,9 @@ public class TournCreate {
 		this.play1 = player1;
 		this.play2 = player2;
 	}
-	public void setUser3(ArrayList<PlayerModel> playerlist) {
+	public void setUser3(ArrayList<PlayerModel> playerlist, int matchNum) {
 		this.players = playerlist;
+		this.numMatch = matchNum;
 	}
 	
 	public void saveFunction(ActionEvent event) {
@@ -150,7 +151,7 @@ public class TournCreate {
 				VotePage controller = fxmlLoader.<VotePage>getController();
 				controller.setUser1(this.image1, this.image2, this.sizeTourn);
 				controller.setUser2(this.play1, this.play2);
-				controller.setUser3(this.players);
+				controller.setUser3(this.players, this.numMatch);
 				Main.stage.setScene(new Scene(root, 1000,800));
 				Main.stage.show();
 			}
