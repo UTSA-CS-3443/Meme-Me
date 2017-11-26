@@ -1,4 +1,7 @@
-
+/**
+ * Mode Controller displays modes for players to choose and links to the Create Meme page
+ * @author Danielle Lawrence
+ */
 package controller;
 
 
@@ -10,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+
 
 public class ModeController implements EventHandler<ActionEvent> {
 	
