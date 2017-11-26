@@ -2,6 +2,12 @@ package model;
 
 import java.util.ArrayList;
 
+import application.Main;
+import controller.ChoosePic;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+
 /**
  * 
  * This class defines the methods for how a tournament is run.
@@ -70,6 +76,19 @@ public class TournamentRunnerModel extends BracketModel {
 		PlayerModel player1 = this.Tournament[this.CurrentMatch];
 		PlayerModel player2 = this.Tournament[this.CurrentMatch+1];
 		
+		try {
+			Parent root;
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/Vote.fxml")); 
+			root = (Parent)fxmlLoader.load(); 
+			ChoosePic controller = fxmlLoader.<ChoosePic>getController();
+			controller.setUser2(player1, player2);
+			Main.stage.setScene(new Scene(root, 1000,800));
+			Main.stage.show();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 		//choose the meme used for both players randomly
 		
 //		//run the meme generator for player 1
@@ -82,7 +101,7 @@ public class TournamentRunnerModel extends BracketModel {
 //		VoteModel(player1, player2);
 		
 		//choose the winner
-		ChooseWinner(player1, player2);
+		//ChooseWinner(player1, player2);
 		
 		return;
 	}

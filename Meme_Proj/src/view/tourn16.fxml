@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Tourn16Controller">
    <children>
       <Pane prefHeight="800.0" prefWidth="1000.0">
          <children>
@@ -57,38 +57,38 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="188.0" text="1" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="190.0" text="2" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="176.0" text="3" GridPane.rowIndex="4" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="178.0" text="4" GridPane.rowIndex="6" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="179.0" text="5" GridPane.rowIndex="8" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="176.0" text="6" GridPane.rowIndex="10" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="178.0" text="7" GridPane.rowIndex="12" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="178.0" text="8" GridPane.rowIndex="14" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="206.0" text="9" GridPane.rowIndex="16" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="187.0" text="10" GridPane.rowIndex="18" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="195.0" text="11" GridPane.rowIndex="20" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="200.0" text="12" GridPane.rowIndex="22" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="198.0" text="13" GridPane.rowIndex="24" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="198.0" text="14" GridPane.rowIndex="26" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="195.0" text="15" GridPane.rowIndex="28" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="186.0" text="16" GridPane.rowIndex="30" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="180.0" text="TBD" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="178.0" text="TBD" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="180.0" text="TBD" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="180.0" text="TBD" GridPane.columnIndex="2" GridPane.rowIndex="13" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="186.0" text="TBD" GridPane.columnIndex="2" GridPane.rowIndex="17" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="200.0" text="TBD" GridPane.columnIndex="2" GridPane.rowIndex="21" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="208.0" text="TBD" GridPane.columnIndex="2" GridPane.rowIndex="25" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="195.0" text="TBD" GridPane.columnIndex="2" GridPane.rowIndex="29" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="174.0" text="TBD" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="168.0" text="TBD" GridPane.columnIndex="4" GridPane.rowIndex="11" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="172.0" text="TBD" GridPane.columnIndex="4" GridPane.rowIndex="19" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="TBD" GridPane.columnIndex="4" GridPane.rowIndex="27" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="TBD" GridPane.columnIndex="6" GridPane.rowIndex="7" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="176.0" text="TBD" GridPane.columnIndex="6" GridPane.rowIndex="23" />
+                  <Button fx:id="b1" mnemonicParsing="false" prefHeight="27.0" prefWidth="188.0" text="1" />
+                  <Button fx:id="b2" mnemonicParsing="false" prefHeight="27.0" prefWidth="190.0" text="2" GridPane.rowIndex="2" />
+                  <Button fx:id="b3" mnemonicParsing="false" prefHeight="27.0" prefWidth="176.0" text="3" GridPane.rowIndex="4" />
+                  <Button fx:id="b4" mnemonicParsing="false" prefHeight="27.0" prefWidth="178.0" text="4" GridPane.rowIndex="6" />
+                  <Button fx:id="b5" mnemonicParsing="false" prefHeight="27.0" prefWidth="179.0" text="5" GridPane.rowIndex="8" />
+                  <Button fx:id="b6" mnemonicParsing="false" prefHeight="27.0" prefWidth="176.0" text="6" GridPane.rowIndex="10" />
+                  <Button fx:id="b7" mnemonicParsing="false" prefHeight="27.0" prefWidth="178.0" text="7" GridPane.rowIndex="12" />
+                  <Button fx:id="b8" mnemonicParsing="false" prefHeight="27.0" prefWidth="178.0" text="8" GridPane.rowIndex="14" />
+                  <Button fx:id="b9" mnemonicParsing="false" prefHeight="27.0" prefWidth="206.0" text="9" GridPane.rowIndex="16" />
+                  <Button fx:id="b10" mnemonicParsing="false" prefHeight="27.0" prefWidth="187.0" text="10" GridPane.rowIndex="18" />
+                  <Button fx:id="b11" mnemonicParsing="false" prefHeight="27.0" prefWidth="195.0" text="11" GridPane.rowIndex="20" />
+                  <Button fx:id="b12" mnemonicParsing="false" prefHeight="27.0" prefWidth="200.0" text="12" GridPane.rowIndex="22" />
+                  <Button fx:id="b13" mnemonicParsing="false" prefHeight="27.0" prefWidth="198.0" text="13" GridPane.rowIndex="24" />
+                  <Button fx:id="b14" mnemonicParsing="false" prefHeight="27.0" prefWidth="198.0" text="14" GridPane.rowIndex="26" />
+                  <Button fx:id="b15" mnemonicParsing="false" prefHeight="27.0" prefWidth="195.0" text="15" GridPane.rowIndex="28" />
+                  <Button fx:id="b16" mnemonicParsing="false" prefHeight="27.0" prefWidth="186.0" text="16" GridPane.rowIndex="30" />
+                  <Button fx:id="b21" mnemonicParsing="false" prefHeight="27.0" prefWidth="180.0" text="TBD" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button fx:id="b22" mnemonicParsing="false" prefHeight="27.0" prefWidth="178.0" text="TBD" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                  <Button fx:id="b23" mnemonicParsing="false" prefHeight="27.0" prefWidth="180.0" text="TBD" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                  <Button fx:id="b24" mnemonicParsing="false" prefHeight="27.0" prefWidth="180.0" text="TBD" GridPane.columnIndex="2" GridPane.rowIndex="13" />
+                  <Button fx:id="b25" mnemonicParsing="false" prefHeight="27.0" prefWidth="186.0" text="TBD" GridPane.columnIndex="2" GridPane.rowIndex="17" />
+                  <Button fx:id="b26" mnemonicParsing="false" prefHeight="27.0" prefWidth="200.0" text="TBD" GridPane.columnIndex="2" GridPane.rowIndex="21" />
+                  <Button fx:id="b27" mnemonicParsing="false" prefHeight="27.0" prefWidth="208.0" text="TBD" GridPane.columnIndex="2" GridPane.rowIndex="25" />
+                  <Button fx:id="b28" mnemonicParsing="false" prefHeight="27.0" prefWidth="195.0" text="TBD" GridPane.columnIndex="2" GridPane.rowIndex="29" />
+                  <Button fx:id="b31" mnemonicParsing="false" prefHeight="27.0" prefWidth="174.0" text="TBD" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                  <Button fx:id="b32" mnemonicParsing="false" prefHeight="27.0" prefWidth="168.0" text="TBD" GridPane.columnIndex="4" GridPane.rowIndex="11" />
+                  <Button fx:id="b33" mnemonicParsing="false" prefHeight="27.0" prefWidth="172.0" text="TBD" GridPane.columnIndex="4" GridPane.rowIndex="19" />
+                  <Button fx:id="b34" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="TBD" GridPane.columnIndex="4" GridPane.rowIndex="27" />
+                  <Button fx:id="b41" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="TBD" GridPane.columnIndex="6" GridPane.rowIndex="7" />
+                  <Button fx:id="b42" mnemonicParsing="false" prefHeight="27.0" prefWidth="176.0" text="TBD" GridPane.columnIndex="6" GridPane.rowIndex="23" />
                   <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="42.0" text="Go" GridPane.columnIndex="8" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="210.0" text="TBD" GridPane.columnIndex="8" GridPane.rowIndex="15" />
+                  <Button fx:id="b43" mnemonicParsing="false" prefHeight="27.0" prefWidth="210.0" text="TBD" GridPane.columnIndex="8" GridPane.rowIndex="15" />
                </children>
             </GridPane>
          </children>

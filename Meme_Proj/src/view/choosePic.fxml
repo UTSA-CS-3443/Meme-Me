@@ -13,8 +13,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9">
+<AnchorPane xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ChoosePic">
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" />
       <BorderPane layoutX="10.0" layoutY="10.0" prefHeight="800.0" prefWidth="1000.0">
@@ -29,7 +28,7 @@
                   <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" prefHeight="88.0" prefWidth="84.0" text="Go" GridPane.columnIndex="2">
+                  <Button mnemonicParsing="false" onAction="#goHandle" prefHeight="88.0" prefWidth="84.0" text="Go" GridPane.columnIndex="2">
                      <font>
                         <Font size="25.0" />
                      </font>

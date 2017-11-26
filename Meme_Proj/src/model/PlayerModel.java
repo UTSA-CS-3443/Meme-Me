@@ -36,5 +36,14 @@ public class PlayerModel {
 	public String toString() {
 		return this.name;
 	}
+	public void setVotes(int vote) {
+		this.votes = vote;
+	}
+	public void setTotalVotes(int vote) {
+		this.totalVotes += vote;
+	}
+	public int getVotes() {
+		return this.votes;
+	}
 	
 }

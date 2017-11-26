@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ListView;
 import javafx.collections.ObservableList;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import application.Main;
@@ -42,166 +43,166 @@ public class PlayerController implements EventHandler<ActionEvent> {
 			player = null;
 		}
 		if (player != null) {
-			if (playerlist.size() < 16) {
-				playerlist.add(player);
+			if (this.playerlist.size() < 16) {
+				this.playerlist.add(player);
 			}
 		}
 		
 		tf.clear();
 		System.out.println(player);
 		ObservableList<String> items;
-		if(playerlist.size() == 1) {
-			items = FXCollections.observableArrayList(playerlist.get(0).toString());
-		}else if(playerlist.size() == 2) {
-			items = FXCollections.observableArrayList(playerlist.get(0).toString()
-					, playerlist.get(1).toString());
-		}else if(playerlist.size() == 3) {
-			items = FXCollections.observableArrayList(playerlist.get(0).toString()
-					, playerlist.get(1).toString()
-					, playerlist.get(2).toString());
-		}else if(playerlist.size() == 4) {
-			items = FXCollections.observableArrayList(playerlist.get(0).toString()
-					, playerlist.get(1).toString()
-					, playerlist.get(2).toString()
-					, playerlist.get(3).toString());
-		}else if(playerlist.size() == 5) {
-			items = FXCollections.observableArrayList(playerlist.get(0).toString()
-					, playerlist.get(1).toString()
-					, playerlist.get(2).toString()
-					, playerlist.get(3).toString()
-					, playerlist.get(4).toString());
-		}else if(playerlist.size() == 6) {
-			items = FXCollections.observableArrayList(playerlist.get(0).toString()
-					, playerlist.get(1).toString()
-					, playerlist.get(2).toString()
-					, playerlist.get(3).toString()
-					, playerlist.get(4).toString()
-					, playerlist.get(5).toString());
-		}else if(playerlist.size() == 7) {
-			items = FXCollections.observableArrayList(playerlist.get(0).toString()
-					, playerlist.get(1).toString()
-					, playerlist.get(2).toString()
-					, playerlist.get(3).toString()
-					, playerlist.get(4).toString()
-					, playerlist.get(5).toString()
-					, playerlist.get(6).toString());
-		}else if(playerlist.size() == 8) {
-			items = FXCollections.observableArrayList(playerlist.get(0).toString()
-					, playerlist.get(1).toString()
-					, playerlist.get(2).toString()
-					, playerlist.get(3).toString()
-					, playerlist.get(4).toString()
-					, playerlist.get(5).toString()
-					, playerlist.get(6).toString()
-					, playerlist.get(7).toString());
-		}else if(playerlist.size() == 9) {
-			items = FXCollections.observableArrayList(playerlist.get(0).toString()
-					, playerlist.get(1).toString()
-					, playerlist.get(2).toString()
-					, playerlist.get(3).toString()
-					, playerlist.get(4).toString()
-					, playerlist.get(5).toString()
-					, playerlist.get(6).toString()
-					, playerlist.get(7).toString()
-					, playerlist.get(8).toString());
-		}else if(playerlist.size() == 10) {
-			items = FXCollections.observableArrayList(playerlist.get(0).toString()
-					, playerlist.get(1).toString()
-					, playerlist.get(2).toString()
-					, playerlist.get(3).toString()
-					, playerlist.get(4).toString()
-					, playerlist.get(5).toString()
-					, playerlist.get(6).toString()
-					, playerlist.get(7).toString()
-					, playerlist.get(8).toString()
-					, playerlist.get(9).toString());
-		}else if(playerlist.size() == 11) {
-			items = FXCollections.observableArrayList(playerlist.get(0).toString()
-					, playerlist.get(1).toString()
-					, playerlist.get(2).toString()
-					, playerlist.get(3).toString()
-					, playerlist.get(4).toString()
-					, playerlist.get(5).toString()
-					, playerlist.get(6).toString()
-					, playerlist.get(7).toString()
-					, playerlist.get(8).toString()
-					, playerlist.get(9).toString()
-					, playerlist.get(10).toString());
-		}else if(playerlist.size() == 12) {
-			items = FXCollections.observableArrayList(playerlist.get(0).toString()
-					, playerlist.get(1).toString()
-					, playerlist.get(2).toString()
-					, playerlist.get(3).toString()
-					, playerlist.get(4).toString()
-					, playerlist.get(5).toString()
-					, playerlist.get(6).toString()
-					, playerlist.get(7).toString()
-					, playerlist.get(8).toString()
-					, playerlist.get(9).toString()
-					, playerlist.get(10).toString()
-					, playerlist.get(11).toString());
-		}else if(playerlist.size() == 13) {
-			items = FXCollections.observableArrayList(playerlist.get(0).toString()
-					, playerlist.get(1).toString()
-					, playerlist.get(2).toString()
-					, playerlist.get(3).toString()
-					, playerlist.get(4).toString()
-					, playerlist.get(5).toString()
-					, playerlist.get(6).toString()
-					, playerlist.get(7).toString()
-					, playerlist.get(8).toString()
-					, playerlist.get(9).toString()
-					, playerlist.get(10).toString()
-					, playerlist.get(11).toString()
-					, playerlist.get(12).toString());
-		}else if(playerlist.size() == 14) {
-			items = FXCollections.observableArrayList(playerlist.get(0).toString()
-					, playerlist.get(1).toString()
-					, playerlist.get(2).toString()
-					, playerlist.get(3).toString()
-					, playerlist.get(4).toString()
-					, playerlist.get(5).toString()
-					, playerlist.get(6).toString()
-					, playerlist.get(7).toString()
-					, playerlist.get(8).toString()
-					, playerlist.get(9).toString()
-					, playerlist.get(10).toString()
-					, playerlist.get(11).toString()
-					, playerlist.get(12).toString()
-					, playerlist.get(13).toString());
-		}else if(playerlist.size() == 15) {
-			items = FXCollections.observableArrayList(playerlist.get(0).toString()
-					, playerlist.get(1).toString()
-					, playerlist.get(2).toString()
-					, playerlist.get(3).toString()
-					, playerlist.get(4).toString()
-					, playerlist.get(5).toString()
-					, playerlist.get(6).toString()
-					, playerlist.get(7).toString()
-					, playerlist.get(8).toString()
-					, playerlist.get(9).toString()
-					, playerlist.get(10).toString()
-					, playerlist.get(11).toString()
-					, playerlist.get(12).toString()
-					, playerlist.get(13).toString()
-					, playerlist.get(14).toString());
-		}else if(playerlist.size() == 16) {
-			items = FXCollections.observableArrayList(playerlist.get(0).toString()
-					, playerlist.get(1).toString()
-					, playerlist.get(2).toString()
-					, playerlist.get(3).toString()
-					, playerlist.get(4).toString()
-					, playerlist.get(5).toString()
-					, playerlist.get(6).toString()
-					, playerlist.get(7).toString()
-					, playerlist.get(8).toString()
-					, playerlist.get(9).toString()
-					, playerlist.get(10).toString()
-					, playerlist.get(11).toString()
-					, playerlist.get(12).toString()
-					, playerlist.get(13).toString()
-					, playerlist.get(14).toString()
-					, playerlist.get(15).toString());
+		if(this.playerlist.size() == 1) {
+			items = FXCollections.observableArrayList(this.playerlist.get(0).toString());
+		}else if(this.playerlist.size() == 2) {
+			items = FXCollections.observableArrayList(this.playerlist.get(0).toString()
+					, this.playerlist.get(1).toString());
+		}else if(this.playerlist.size() == 3) {
+			items = FXCollections.observableArrayList(this.playerlist.get(0).toString()
+					, this.playerlist.get(1).toString()
+					, this.playerlist.get(2).toString());
+		}else if(this.playerlist.size() == 4) {
+			items = FXCollections.observableArrayList(this.playerlist.get(0).toString()
+					, this.playerlist.get(1).toString()
+					, this.playerlist.get(2).toString()
+					, this.playerlist.get(3).toString());
+		}else if(this.playerlist.size() == 5) {
+			items = FXCollections.observableArrayList(this.playerlist.get(0).toString()
+					, this.playerlist.get(1).toString()
+					, this.playerlist.get(2).toString()
+					, this.playerlist.get(3).toString()
+					, this.playerlist.get(4).toString());
+		}else if(this.playerlist.size() == 6) {
+			items = FXCollections.observableArrayList(this.playerlist.get(0).toString()
+					, this.playerlist.get(1).toString()
+					, this.playerlist.get(2).toString()
+					, this.playerlist.get(3).toString()
+					, this.playerlist.get(4).toString()
+					, this.playerlist.get(5).toString());
+		}else if(this.playerlist.size() == 7) {
+			items = FXCollections.observableArrayList(this.playerlist.get(0).toString()
+					, this.playerlist.get(1).toString()
+					, this.playerlist.get(2).toString()
+					, this.playerlist.get(3).toString()
+					, this.playerlist.get(4).toString()
+					, this.playerlist.get(5).toString()
+					, this.playerlist.get(6).toString());
+		}else if(this.playerlist.size() == 8) {
+			items = FXCollections.observableArrayList(this.playerlist.get(0).toString()
+					, this.playerlist.get(1).toString()
+					, this.playerlist.get(2).toString()
+					, this.playerlist.get(3).toString()
+					, this.playerlist.get(4).toString()
+					, this.playerlist.get(5).toString()
+					, this.playerlist.get(6).toString()
+					, this.playerlist.get(7).toString());
+		}else if(this.playerlist.size() == 9) {
+			items = FXCollections.observableArrayList(this.playerlist.get(0).toString()
+					, this.playerlist.get(1).toString()
+					, this.playerlist.get(2).toString()
+					, this.playerlist.get(3).toString()
+					, this.playerlist.get(4).toString()
+					, this.playerlist.get(5).toString()
+					, this.playerlist.get(6).toString()
+					, this.playerlist.get(7).toString()
+					, this.playerlist.get(8).toString());
+		}else if(this.playerlist.size() == 10) {
+			items = FXCollections.observableArrayList(this.playerlist.get(0).toString()
+					, this.playerlist.get(1).toString()
+					, this.playerlist.get(2).toString()
+					, this.playerlist.get(3).toString()
+					, this.playerlist.get(4).toString()
+					, this.playerlist.get(5).toString()
+					, this.playerlist.get(6).toString()
+					, this.playerlist.get(7).toString()
+					, this.playerlist.get(8).toString()
+					, this.playerlist.get(9).toString());
+		}else if(this.playerlist.size() == 11) {
+			items = FXCollections.observableArrayList(this.playerlist.get(0).toString()
+					, this.playerlist.get(1).toString()
+					, this.playerlist.get(2).toString()
+					, this.playerlist.get(3).toString()
+					, this.playerlist.get(4).toString()
+					, this.playerlist.get(5).toString()
+					, this.playerlist.get(6).toString()
+					, this.playerlist.get(7).toString()
+					, this.playerlist.get(8).toString()
+					, this.playerlist.get(9).toString()
+					, this.playerlist.get(10).toString());
+		}else if(this.playerlist.size() == 12) {
+			items = FXCollections.observableArrayList(this.playerlist.get(0).toString()
+					, this.playerlist.get(1).toString()
+					, this.playerlist.get(2).toString()
+					, this.playerlist.get(3).toString()
+					, this.playerlist.get(4).toString()
+					, this.playerlist.get(5).toString()
+					, this.playerlist.get(6).toString()
+					, this.playerlist.get(7).toString()
+					, this.playerlist.get(8).toString()
+					, this.playerlist.get(9).toString()
+					, this.playerlist.get(10).toString()
+					, this.playerlist.get(11).toString());
+		}else if(this.playerlist.size() == 13) {
+			items = FXCollections.observableArrayList(this.playerlist.get(0).toString()
+					, this.playerlist.get(1).toString()
+					, this.playerlist.get(2).toString()
+					, this.playerlist.get(3).toString()
+					, this.playerlist.get(4).toString()
+					, this.playerlist.get(5).toString()
+					, this.playerlist.get(6).toString()
+					, this.playerlist.get(7).toString()
+					, this.playerlist.get(8).toString()
+					, this.playerlist.get(9).toString()
+					, this.playerlist.get(10).toString()
+					, this.playerlist.get(11).toString()
+					, this.playerlist.get(12).toString());
+		}else if(this.playerlist.size() == 14) {
+			items = FXCollections.observableArrayList(this.playerlist.get(0).toString()
+					, this.playerlist.get(1).toString()
+					, this.playerlist.get(2).toString()
+					, this.playerlist.get(3).toString()
+					, this.playerlist.get(4).toString()
+					, this.playerlist.get(5).toString()
+					, this.playerlist.get(6).toString()
+					, this.playerlist.get(7).toString()
+					, this.playerlist.get(8).toString()
+					, this.playerlist.get(9).toString()
+					, this.playerlist.get(10).toString()
+					, this.playerlist.get(11).toString()
+					, this.playerlist.get(12).toString()
+					, this.playerlist.get(13).toString());
+		}else if(this.playerlist.size() == 15) {
+			items = FXCollections.observableArrayList(this.playerlist.get(0).toString()
+					, this.playerlist.get(1).toString()
+					, this.playerlist.get(2).toString()
+					, this.playerlist.get(3).toString()
+					, this.playerlist.get(4).toString()
+					, this.playerlist.get(5).toString()
+					, this.playerlist.get(6).toString()
+					, this.playerlist.get(7).toString()
+					, this.playerlist.get(8).toString()
+					, this.playerlist.get(9).toString()
+					, this.playerlist.get(10).toString()
+					, this.playerlist.get(11).toString()
+					, this.playerlist.get(12).toString()
+					, this.playerlist.get(13).toString()
+					, this.playerlist.get(14).toString());
+		}else if(this.playerlist.size() == 16) {
+			items = FXCollections.observableArrayList(this.playerlist.get(0).toString()
+					, this.playerlist.get(1).toString()
+					, this.playerlist.get(2).toString()
+					, this.playerlist.get(3).toString()
+					, this.playerlist.get(4).toString()
+					, this.playerlist.get(5).toString()
+					, this.playerlist.get(6).toString()
+					, this.playerlist.get(7).toString()
+					, this.playerlist.get(8).toString()
+					, this.playerlist.get(9).toString()
+					, this.playerlist.get(10).toString()
+					, this.playerlist.get(11).toString()
+					, this.playerlist.get(12).toString()
+					, this.playerlist.get(13).toString()
+					, this.playerlist.get(14).toString()
+					, this.playerlist.get(15).toString());
 		}else {
 			items = FXCollections.observableArrayList("");
 		}
@@ -210,22 +211,62 @@ public class PlayerController implements EventHandler<ActionEvent> {
 	public void playButtonHandle(ActionEvent event) {
 		System.out.println("play clicked");
 		//TournamentRunnerModel tourn = new TournamentRunnerModel(playerlist);
-		try {
 			Parent root;
-			if (playerlist.size() > 2 && playerlist.size() <= 4) {
-				root = FXMLLoader.load(getClass().getResource("../view/tourn4.fxml"));
-			}else if(playerlist.size() > 4 && playerlist.size() <= 8) {
-				root = FXMLLoader.load(getClass().getResource("../view/tourn8.fxml"));
-			}else if(playerlist.size() > 8 && playerlist.size() <= 16) {
-				root = FXMLLoader.load(getClass().getResource("../view/tourn16.fxml"));
+			if (this.playerlist.size() > 2 && this.playerlist.size() <= 4) {
+				try {
+					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/tourn4.fxml")); 
+					root = (Parent)fxmlLoader.load(); 
+					Tourn4Controller controller = fxmlLoader.<Tourn4Controller>getController();
+					
+					controller.setUser(this.playerlist);
+					System.out.println("tournTesst");
+					Main.stage.setScene(new Scene(root, 1000,800));
+					Main.stage.show();
+				}
+				catch(Exception e) {
+					e.printStackTrace();
+				}
+				
+				//root = FXMLLoader.load(getClass().getResource("../view/tourn4.fxml"));
+			}else if(this.playerlist.size() > 4 && this.playerlist.size() <= 8) {
+				try {
+					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/tourn8.fxml")); 
+					root = (Parent)fxmlLoader.load(); 
+					Tourn8Controller controller = fxmlLoader.<Tourn8Controller>getController();
+					controller.setUser(this.playerlist);
+					Main.stage.setScene(new Scene(root, 1000,800));
+					Main.stage.show();
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+					
+				
+				//root = FXMLLoader.load(getClass().getResource("../view/tourn8.fxml"));
+			}else if(this.playerlist.size() > 8 && this.playerlist.size() <= 16) {
+				try {
+					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/tourn16.fxml")); 
+					root = (Parent)fxmlLoader.load(); 
+					Tourn16Controller controller = fxmlLoader.<Tourn16Controller>getController();
+					controller.setUser(this.playerlist);
+					Main.stage.setScene(new Scene(root, 1000,800));
+					Main.stage.show();
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+				
+				//root = FXMLLoader.load(getClass().getResource("../view/tourn16.fxml"));
 			}else {
-				root = FXMLLoader.load(getClass().getResource("../view/Mode.fxml"));
+				try {
+					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/Mode.fxml")); 
+					root = (Parent)fxmlLoader.load(); 
+					//Tourn16Controller controller = fxmlLoader.<Tourn16Controller>getController();
+					//controller.setUser(this.playerlist);
+					Main.stage.setScene(new Scene(root, 1000,800));
+					Main.stage.show();
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
 			}
-			Main.stage.setScene(new Scene(root, 1000,800));
-			Main.stage.show();
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
+			
 	}
 }
