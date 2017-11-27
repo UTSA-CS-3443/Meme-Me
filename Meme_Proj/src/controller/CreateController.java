@@ -128,20 +128,7 @@ public class CreateController implements EventHandler<ActionEvent>{
 	}
 
 	//Edit Menu	
-	@SuppressWarnings("rawtypes")
-	@FXML
-	public void undoFunction(ActionEvent event) {
-		UndoRedoStack stack = new UndoRedoStack();
-		stack.undo();
 		
-	}
-	@SuppressWarnings("rawtypes")
-	@FXML
-	public void redoFunction(ActionEvent event){
-		UndoRedoStack stack = new UndoRedoStack();
-		stack.redo();
-	}
-	
 	public void clearFunction(ActionEvent event) {
 		imgView.setImage(null);
 		tf1.clear();
