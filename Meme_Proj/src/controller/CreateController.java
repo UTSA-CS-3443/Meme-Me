@@ -60,12 +60,7 @@ public class CreateController implements EventHandler<ActionEvent>{
 	 private Button redo;
 	 @FXML
 	 private Button close;	
-	 /*@FXML
-	 private Button top;
-	 @FXML 
-	 private Button bottom; 
-	 @FXML 
-	 private Button middle;*/
+	
 	 @FXML
 	 private TextField tf1;
 	 @FXML
@@ -167,8 +162,8 @@ public class CreateController implements EventHandler<ActionEvent>{
 			text1.setFont(Font.font("Impact",FontWeight.BOLD,70));
 			text1.setFill(Color.WHITE);
 			text1.setStroke(Color.BLACK);
-			text1.setX(50);
-			text1.setY(50);
+			text1.setX(25);
+			text1.setY(60);
 			group.getChildren().add(text1);
 			
 			text2.textProperty().bind(tf2.textProperty());
@@ -176,7 +171,7 @@ public class CreateController implements EventHandler<ActionEvent>{
 			text2.setFont(Font.font("Impact",FontWeight.BOLD,70));
 			text2.setFill(Color.WHITE);
 			text2.setStroke(Color.BLACK);
-			text2.setX(50);
+			text2.setX(25);
 			text2.setY(375);
 			group.getChildren().add(text2);
 			
@@ -185,14 +180,12 @@ public class CreateController implements EventHandler<ActionEvent>{
 			text3.setFont(Font.font("Impact",FontWeight.BOLD,70));
 			text3.setFill(Color.WHITE);
 			text3.setStroke(Color.BLACK);
-			text3.setX(50);
-			text3.setY(550);
+			text3.setX(25);
+			text3.setY(670);
 			group.getChildren().add(text3);
 			}
 			catch(Exception ex) {
 				ex.printStackTrace();
 			}
-	}	
-	
-	
+	}		
 }

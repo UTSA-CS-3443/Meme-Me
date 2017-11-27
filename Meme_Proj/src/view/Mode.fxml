@@ -25,20 +25,20 @@
             <RowConstraints maxHeight="66.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handle" prefHeight="108.0" prefWidth="618.0" text="Free Play" textAlignment="CENTER" textFill="#68e198" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handle" prefHeight="108.0" prefWidth="618.0" text="Free Play" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <effect>
                   <InnerShadow />
                </effect>
                <font>
-                  <Font name="Comic Sans MS" size="37.0" />
+                  <Font name="Arial" size="37.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="24.0" mnemonicParsing="false" onAction="#tournamenthandle" prefHeight="108.0" prefWidth="640.0" text="Tournament" textAlignment="CENTER" textFill="#68e198" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="24.0" mnemonicParsing="false" onAction="#tournamenthandle" prefHeight="108.0" prefWidth="640.0" text="Tournament" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
-                  <Font name="Comic Sans MS" size="37.0" />
+                  <Font name="Arial" size="37.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -47,9 +47,9 @@
                   <InnerShadow />
                </effect>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="149.0" mnemonicParsing="false" onAction="#playerhandle" prefHeight="108.0" prefWidth="625.0" text="Player vs. Player" textAlignment="CENTER" textFill="#68e198" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="149.0" mnemonicParsing="false" onAction="#playerhandle" prefHeight="108.0" prefWidth="625.0" text="Player vs. Player" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
-                  <Font name="Comic Sans MS" size="37.0" />
+                  <Font name="Arial" size="37.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
