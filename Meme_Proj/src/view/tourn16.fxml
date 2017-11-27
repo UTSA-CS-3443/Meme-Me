@@ -189,6 +189,11 @@
                      <font>
                         <Font name="Arial" size="15.0" />
                      </font></Button>
+                  <Button fx:id="done" mnemonicParsing="false" onAction="#doneFunction" text="Done" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="26">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </Button>
                </children>
             </GridPane>
          </children>

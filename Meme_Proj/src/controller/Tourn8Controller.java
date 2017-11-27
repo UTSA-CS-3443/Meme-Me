@@ -2,9 +2,13 @@ package controller;
 
 import java.util.ArrayList;
 
+import application.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import model.PlayerModel;
 
@@ -42,6 +46,8 @@ public class Tourn8Controller implements EventHandler<ActionEvent>{
 	private Button b32;
 	@FXML 
 	private Button b41;
+	@FXML
+	private Button done;
 	private ArrayList<PlayerModel> winners = new ArrayList<PlayerModel>();
 	private int votes1, votes2;
 	private PlayerModel bye = new PlayerModel("bye");
@@ -138,6 +144,15 @@ public class Tourn8Controller implements EventHandler<ActionEvent>{
 	public void handle(ActionEvent event) {
 		// TODO Auto-generated method stub
 		
+	}
+	public void doneFunction(ActionEvent event) {
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("../view/Congrats.fxml"));
+			Main.stage.setScene(new Scene(root, 700, 600));
+			Main.stage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -82,7 +82,7 @@
                   <Font name="Arial Narrow" size="46.0" />
                </font>
             </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" text="Done" GridPane.columnIndex="4" GridPane.halignment="CENTER">
+            <Button fx:id="done" alignment="CENTER" mnemonicParsing="false" onAction="#doneFunction" text="Done" GridPane.columnIndex="4" GridPane.halignment="CENTER">
                <font>
                   <Font name="Arial Narrow" size="34.0" />
                </font>

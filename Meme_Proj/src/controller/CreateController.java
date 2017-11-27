@@ -54,10 +54,7 @@ public class CreateController implements EventHandler<ActionEvent>{
 	 private Button clear;
 	 @FXML
 	 private Group group;
-	@FXML
-	private Button undo;
-	 @FXML 
-	 private Button redo;
+	
 	 @FXML
 	 private Button close;	
 	
