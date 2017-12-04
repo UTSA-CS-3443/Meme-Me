@@ -158,7 +158,6 @@ public class TournCreate {
 			catch(Exception e) {
 				e.printStackTrace();
 			}
-		}
-		
+		}		
 	}
 }
