@@ -43,7 +43,6 @@ public class TournamentRunnerModel extends BracketModel {
 	}
 	
 	private void RunRound() {
-		//TODO create method to run each round in the tournament
 		
 		//call RunMatch method	
 		for(this.CurrentMatch=0; 
