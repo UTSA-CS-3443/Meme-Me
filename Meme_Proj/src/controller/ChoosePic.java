@@ -43,14 +43,13 @@ public class ChoosePic implements EventHandler<ActionEvent>{
 	private int matchIndex;
 	private int roundNum;
 	private ArrayList<PlayerModel> players = new ArrayList<PlayerModel>();
-	
+	ArrayList<PlayerModel> winnerList = new ArrayList<PlayerModel>();
 	//public ArrayList<Image> list = new ArrayList<Image>();
 	@Override
 	public void handle(ActionEvent event) {
 		// TODO Auto-generated method stub
 		
 	}
-	
 	public void goHandle(ActionEvent event) {
 		//TournamentCom comp = new TournamentCom(saved);
 		System.out.println("Go pushed");
@@ -73,9 +72,14 @@ public class ChoosePic implements EventHandler<ActionEvent>{
 				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/TournamentCreate.fxml")); 
 				root = (Parent)fxmlLoader.load(); 
 				TournCreate controller = fxmlLoader.<TournCreate>getController();
+				//controller.setUser4(this.winnerList);
+				//controller.setUser3(this.players, this.iMatch, this.sizeTourn);
+				
 				controller.setUser(this.saved, this.sizeTourn);
 				controller.setUser2(this.play1, this.play2);
-				controller.setUser3(this.players, this.matchIndex);
+				controller.setUser3(this.players, this.matchIndex, 1);
+				controller.setUser4(this.roundNum);
+				controller.setUser5(this.winnerList);
 				Main.stage.setScene(new Scene(root, 1000,800));
 				Main.stage.show();
 			}
@@ -99,6 +103,9 @@ public class ChoosePic implements EventHandler<ActionEvent>{
 	public void setUser4(int roundNum) {
 		this.roundNum = roundNum;
 	}
+	public void setUser5(ArrayList<PlayerModel> winners) {
+		this.winnerList = winners;
+	}
 	public void openFunction(ActionEvent event) throws IOException {		
 		FileChooser choice = new FileChooser();
 		choice.getExtensionFilters().addAll(new 
@@ -112,7 +119,7 @@ public class ChoosePic implements EventHandler<ActionEvent>{
 			imgView.setImage(img);
 			saved = img;
 		}
-	}	
+	}
 	public void closeFunction(ActionEvent event) {
 		Platform.exit();
 		System.exit(0);

@@ -3,9 +3,14 @@ import model.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
 import java.util.ArrayList;
+
+import application.Main;
 public class Tourn4Controller implements EventHandler<ActionEvent>{
 	ArrayList<PlayerModel> playerlist = new ArrayList<PlayerModel>();
 	TournamentRunnerModel2 tourn;
@@ -23,6 +28,8 @@ public class Tourn4Controller implements EventHandler<ActionEvent>{
 	private Button b22;
 	@FXML 
 	private Button b31;
+	@FXML
+	private Button done;
 	private ArrayList<PlayerModel> winners = new ArrayList<PlayerModel>();
 	private int votes1, votes2;
 	private PlayerModel bye = new PlayerModel("bye");
@@ -38,6 +45,7 @@ public class Tourn4Controller implements EventHandler<ActionEvent>{
 					this.tourn.matchNum = this.iMatch;	
 				}
 				
+				
 				if (this.tourn.Players4.get(0) == null) {
 					b1.setText("bye");
 				}else {
@@ -56,43 +64,28 @@ public class Tourn4Controller implements EventHandler<ActionEvent>{
 				}else {
 					b4.setText(this.tourn.Players4.get(3).getName());	
 				}
-				if(this.tourn.roundNum == 1 && this.tourn.matchNum == 1) {
-					
-				}else if(this.tourn.roundNum == 1 && this.tourn.matchNum == 2) {
-					b21.setText(this.winners.get(0).name);
-				}else if(this.tourn.roundNum == 2 && this.tourn.matchNum == 1) {
-					b21.setText(this.winners.get(0).name);
-					b22.setText(this.winners.get(1).name);
-				}else if(this.tourn.roundNum == 3 && this.tourn.matchNum == 1) {
-					b21.setText(this.winners.get(0).name);
-					b22.setText(this.winners.get(1).name);
-					b31.setText(this.winners.get(2).name);
+				if(this.tourn.roundNum == 1) {
+					if(this.tourn.matchNum == 1) {
+						
+					}else if(this.tourn.matchNum == 2) {
+						b21.setText(this.tourn.winners.get(0).name);
+					}
+				}else if(this.tourn.roundNum == 2) {
+					if(this.tourn.matchNum == 1) {
+						b21.setText(this.tourn.winners.get(0).name);
+						b22.setText(this.tourn.winners.get(1).name);
+					}
+				}else if(this.tourn.roundNum == 3) {
+					b21.setText(this.tourn.winners.get(0).name);
+					b22.setText(this.tourn.winners.get(1).name);
+					b31.setText(this.tourn.winners.get(2).name);
 				}
 				
 	}
 	public void goHandle(ActionEvent event) {
 		//this.bye.setName("bye");
-		
 		if(this.tourn.roundNum == 1) {
 			if (this.tourn.matchNum == 1) {
-				if (this.tourn.Players4.get(0) == null) {
-					b1.setText("bye");
-				}else {
-					b1.setText(this.tourn.Players4.get(0).getName());	
-				}
-				if (this.tourn.Players4.get(1) == null) {
-					b2.setText("bye");
-				}else {
-					b2.setText(this.tourn.Players4.get(1).getName());	
-				}if (this.tourn.Players4.get(2) == null) {
-					b3.setText("bye");
-				}else {
-					b3.setText(this.tourn.Players4.get(2).getName());	
-				}if (this.tourn.Players4.get(3) == null) {
-					b4.setText("bye");
-				}else {
-					b4.setText(this.tourn.Players4.get(3).getName());	
-				}
 				//this.tourn.matchNum++;
 				if(this.tourn.Players4.get(0) == null) {
 					this.tourn.Match[0] = this.bye;
@@ -106,25 +99,7 @@ public class Tourn4Controller implements EventHandler<ActionEvent>{
 				}
 				this.tourn.RunRound();
 			}else if(this.tourn.matchNum == 2) {
-				b21.setText(this.winners.get(0).getName());
-				if (this.tourn.Players4.get(0) == null) {
-					b1.setText("bye");
-				}else {
-					b1.setText(this.tourn.Players4.get(0).getName());	
-				}
-				if (this.tourn.Players4.get(1) == null) {
-					b2.setText("bye");
-				}else {
-					b2.setText(this.tourn.Players4.get(1).getName());	
-				}if (this.tourn.Players4.get(2) == null) {
-					b3.setText("bye");
-				}else {
-					b3.setText(this.tourn.Players4.get(2).getName());	
-				}if (this.tourn.Players4.get(3) == null) {
-					b4.setText("bye");
-				}else {
-					b4.setText(this.tourn.Players4.get(3).getName());	
-				}
+				
 				if(this.tourn.Players4.get(2) == null) {
 					this.tourn.Match[2] = this.bye;
 					this.tourn.Match[3] = this.tourn.Players4.get(3);
@@ -137,70 +112,27 @@ public class Tourn4Controller implements EventHandler<ActionEvent>{
 				}
 				
 				this.tourn.RunRound();
+			}
 			}else if(this.tourn.roundNum == 2) {
 				if(this.tourn.matchNum == 1) {
-					b21.setText(winners.get(0).getName());
-					b22.setText(winners.get(1).getName());
-					if (this.tourn.Players4.get(0) == null) {
-						b1.setText("bye");
-					}else {
-						b1.setText(this.tourn.Players4.get(0).getName());	
-					}
-					if (this.tourn.Players4.get(1) == null) {
-						b2.setText("bye");
-					}else {
-						b2.setText(this.tourn.Players4.get(1).getName());	
-					}if (this.tourn.Players4.get(2) == null) {
-						b3.setText("bye");
-					}else {
-						b3.setText(this.tourn.Players4.get(2).getName());	
-					}if (this.tourn.Players4.get(3) == null) {
-						b4.setText("bye");
-					}else {
-						b4.setText(this.tourn.Players4.get(3).getName());	
-					}
-					this.tourn.matchNum++;
-				
-			//}else if(this.tourn.roundNum == 2) {
-					this.tourn.Match[0] = this.winners.get(0);
-					this.tourn.Match[1] = this.winners.get(1);
+					this.tourn.Match[0] = this.tourn.winners.get(0);
+					this.tourn.Match[1] = this.tourn.winners.get(1);
 					this.tourn.RunRound();
-				}else if(this.tourn.matchNum == 2){
-					b21.setText(winners.get(0).getName());
-					b22.setText(winners.get(1).getName());
-					b31.setText(winners.get(2).getName());
-					if (this.tourn.Players4.get(0) == null) {
-						b1.setText("bye");
-					}else {
-						b1.setText(this.tourn.Players4.get(0).getName());	
-					}
-					if (this.tourn.Players4.get(1) == null) {
-						b2.setText("bye");
-					}else {
-						b2.setText(this.tourn.Players4.get(1).getName());	
-					}if (this.tourn.Players4.get(2) == null) {
-						b3.setText("bye");
-					}else {
-						b3.setText(this.tourn.Players4.get(2).getName());	
-					}if (this.tourn.Players4.get(3) == null) {
-						b4.setText("bye");
-					}else {
-						b4.setText(this.tourn.Players4.get(3).getName());	
-					}
-					this.tourn.matchNum = 1;
+				}
+	
 			}
-			}
-		}
-		
-		
-		
-		
 		
 	}
 	public void setUser(ArrayList<PlayerModel> players) {
 		System.out.println(players.size());
 		this.playerlist = players;
-		tourn = new TournamentRunnerModel2(players);
+		this.tourn = new TournamentRunnerModel2(players, this.winners);
+	}
+	public void setUser(ArrayList<PlayerModel> players, int roundNum) {
+		System.out.println(players.size());
+		this.playerlist = players;
+		this.tourn = new TournamentRunnerModel2(players, this.winners, roundNum, this.iMatch);
+		this.iMatch = this.tourn.matchNum;
 	}
 	public void setUser2(int vote1, int vote2) {
 		this.votes1 = vote1;
@@ -213,5 +145,20 @@ public class Tourn4Controller implements EventHandler<ActionEvent>{
 		this.iMatch = match;
 		this.numBye = numBye;
 	}
-
+	public void setUser5(int roundNum) {
+		this.tourn.roundNum = roundNum;
+	}
+	public void setUser6(ArrayList<PlayerModel> winnerList) {
+		this.tourn.winners = winnerList;
+		
+	}
+	public void doneFunction(ActionEvent event) {
+ 		try {
+ 			Parent root = FXMLLoader.load(getClass().getResource("../view/Congrats.fxml"));
+ 			Main.stage.setScene(new Scene(root, 700, 600));
+ 			Main.stage.show();
+ 		} catch(Exception e) {
+ 			e.printStackTrace();
+ 		}
+	}
 }
