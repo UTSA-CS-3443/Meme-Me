@@ -165,13 +165,13 @@ public class TournCreate {
 				controller.setUser3(this.players, this.numMatch, this.numBye);
 				controller.setUser4(this.roundNum);
 				controller.setUser5(this.winnerList);
+
 				Main.stage.setScene(new Scene(root, 1250,800));
 				Main.stage.show();
 			}
 			catch(Exception e) {
 				e.printStackTrace();
 			}
-		}
-		
+		}		
 	}
 }

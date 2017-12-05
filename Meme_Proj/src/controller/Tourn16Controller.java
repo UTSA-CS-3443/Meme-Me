@@ -508,6 +508,7 @@ public class Tourn16Controller implements EventHandler<ActionEvent>{
  		} catch(Exception e) {
  			e.printStackTrace();
  		}
+
 	}
 
 }

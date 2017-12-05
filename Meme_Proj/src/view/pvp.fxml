@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -8,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlayerVPlayer">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlayerVPlayer">
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" />
       <GridPane prefHeight="800.0" prefWidth="1000.0">
@@ -25,23 +29,24 @@
          <children>
             <Button mnemonicParsing="false" prefHeight="131.0" prefWidth="449.0" text="Player1">
                <font>
-                  <Font size="46.0" />
+                  <Font name="Arial" size="46.0" />
                </font>
             </Button>
             <Button mnemonicParsing="false" prefHeight="129.0" prefWidth="450.0" text="Player2" GridPane.rowIndex="2">
                <font>
-                  <Font size="48.0" />
+                  <Font name="Arial" size="46.0" />
                </font>
             </Button>
             <Button fx:id="win" mnemonicParsing="false" onAction="#goHandle" prefHeight="117.0" prefWidth="477.0" text="Winner" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
-                  <Font size="40.0" />
+                  <Font name="Arial" size="46.0" />
                </font>
             </Button>
             <GridPane GridPane.columnIndex="2" GridPane.rowIndex="2">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -49,9 +54,9 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" onAction="#goToWelcome" prefHeight="131.0" prefWidth="295.0" text="Welcome Page" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <Button cancelButton="true" mnemonicParsing="false" onAction="#goToWelcome" prefHeight="131.0" prefWidth="295.0" text="Welcome Page" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
-                        <Font size="32.0" />
+                        <Font name="Arial" size="32.0" />
                      </font>
                   </Button>
                </children>

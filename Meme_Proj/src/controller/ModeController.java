@@ -26,7 +26,7 @@ public class ModeController implements EventHandler<ActionEvent> {
 	public void handle(ActionEvent arg0) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../view/CreateView.fxml"));
-			Main.stage.setScene(new Scene(root, 1000, 800));
+			Main.stage.setScene(new Scene(root, 1100, 850));
 			Main.stage.show();
 		} catch(Exception e) {
 			e.printStackTrace();

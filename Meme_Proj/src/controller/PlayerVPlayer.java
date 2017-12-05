@@ -19,8 +19,8 @@ public class PlayerVPlayer implements EventHandler<ActionEvent>{
 	@Override
 	public void handle(ActionEvent event) {
 		// TODO Auto-generated method stub
-		
 	}
+	
 	public void goHandle(ActionEvent event) {
 		System.out.println("winner button pushed");
 		try {
@@ -41,9 +41,7 @@ public class PlayerVPlayer implements EventHandler<ActionEvent>{
 			win.setText("Player1 Wins");
 		}else {
 			win.setText("Player2 Wins");
-		}
-		
-	    
+		}	    
 	}
 	public void goToWelcome(ActionEvent event) {
 		try {
