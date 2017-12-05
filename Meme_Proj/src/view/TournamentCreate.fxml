@@ -59,19 +59,12 @@
                         </Menu>
                         <Menu mnemonicParsing="false" text="Edit">
                            <items>
-                              <MenuItem mnemonicParsing="false" text="Undo" />
-                              <MenuItem mnemonicParsing="false" text="Redo" />
                               <MenuItem mnemonicParsing="false" onAction="#clearFunction" text="Clear All" />
-                           </items>
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="Help">
-                           <items>
-                              <MenuItem mnemonicParsing="false" text="About" />
                            </items>
                         </Menu>
                      </menus>
                   </MenuBar>
-                  <Button fx:id="top" mnemonicParsing="false" onAction="#insertLine" prefHeight="27.0" prefWidth="129.0" text="Insert " GridPane.rowIndex="2">
+                  <Button fx:id="insertText" mnemonicParsing="false" onAction="#insertLine" prefHeight="27.0" prefWidth="129.0" text="Insert " GridPane.rowIndex="2">
                      <font>
                         <Font name="Arial" size="18.0" />
                      </font></Button>

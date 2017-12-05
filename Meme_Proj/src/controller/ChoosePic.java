@@ -33,6 +33,11 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.FileChooser.ExtensionFilter;
 import model.PlayerModel;
+
+/**
+ * 
+ *
+ */
 public class ChoosePic implements EventHandler<ActionEvent>{
 
 	public ImageView imgView;
@@ -52,21 +57,8 @@ public class ChoosePic implements EventHandler<ActionEvent>{
 	}
 	
 	public void goHandle(ActionEvent event) {
-		//TournamentCom comp = new TournamentCom(saved);
 		System.out.println("Go pushed");
 		
-		/*try {
-			Parent root;
-			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/TournamentCreate.fxml")); 
-			root = (Parent)fxmlLoader.load(); 
-			TournCreate controller = fxmlLoader.<TournCreate>getController();
-			controller.setUser(saved, sizeTourn);
-			Main.stage.setScene(new Scene(root, 1000,800));
-			Main.stage.show();
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}*/
 		if (!saved.equals(null)) {
 			Parent root;
 			try {

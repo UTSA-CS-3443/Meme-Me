@@ -73,7 +73,6 @@ public class CreateByeController implements EventHandler<ActionEvent>{
 	public int sizeTourn;
 	public PlayerModel play1;
 	public PlayerModel play2;
-
 	public ArrayList<Image> imagelist = new ArrayList<Image>();
 	private ArrayList<PlayerModel> players = new ArrayList<PlayerModel>();
 	@Override
@@ -82,6 +81,11 @@ public class CreateByeController implements EventHandler<ActionEvent>{
 		}
 	
 	//File Menu	
+	/**
+	 * A method that opens and views a jpg, png, or gif image file
+	 * @param event Event to occur
+	 * @throws IOException An exception to be thrown
+	 */
 	@FXML
 	public void openFunction(ActionEvent event) throws IOException {		
 		FileChooser choice = new FileChooser();
@@ -96,6 +100,11 @@ public class CreateByeController implements EventHandler<ActionEvent>{
 			imgView.setImage(img);
 		}
 	}	
+	
+	/**
+	 * A method that saves a snapshot of an image as a png file
+	 * @param event Event to occur
+	 */
 	public void savefunc(ActionEvent event) {
 		Image image = pane.snapshot(new SnapshotParameters(), null);
 		FileChooser fileChooser = new FileChooser();
@@ -110,6 +119,10 @@ public class CreateByeController implements EventHandler<ActionEvent>{
             }
         }
 	}
+	/**
+	 * A method that once button done is clicked a new window is previewed
+	 * @param event Event to occur once clicked
+	 */
 	public void doneHandle(ActionEvent event) {
 		System.out.println("done pressed");
 		try {
@@ -131,16 +144,15 @@ public class CreateByeController implements EventHandler<ActionEvent>{
 		}
 	}
 	
+	/**
+	 * An event that will close the application
+	 * @param event Event to occur once clicked
+	 */
 	public void closeFunction(ActionEvent event) {
 		Platform.exit();
 		System.exit(0);
 	}
 
-	//Edit Menu	
-	public void undoFunction(ActionEvent event) {	}
-	
-	public void redoFunction(ActionEvent event){	}
-	// this removes references, it needs to reset values
 	public void clearFunction(ActionEvent event) {
 		imgView.setImage(null);
 		tf1.clear();

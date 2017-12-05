@@ -951,45 +951,7 @@ public class TournamentRunnerModel2{
 		}
 
 		
-		//this stack will be used to keep track of the 
-		//list of indices to be reassigned
 		
-		/*int[] AssignmentStack = new int[playNum/2 -1];
-		AssignmentStack[this.Tournament.length/2 -1] = -1;
-
-		//pair the first and last elements in the bracket
-		this.Tournament[0] = this.Players.get(0);
-		this.Tournament[1] = this.Players.get(playNum);
-		
-		//set the first position in the stack to players/2
-		AssignmentStack[0] = this.Tournament.length/2;
-		int assignments = 1;
-		
-		//iterate over the assignment stack until all 
-		//assignments have been finished (this is the ugly part)
-		for(int i=0; i<=(AssignmentStack.length); i++) {
-			
-			//place player into appropriate matches based on 
-			//assignment stack index
-			this.Tournament[AssignmentStack[i]] = this.Players.get(assignments);
-			this.Tournament[AssignmentStack[i]] = this.Players.get(playNum-assignments);
-			assignments++;
-			
-			//update the children of the current position in the stack
-			if((i*2)+1 < (AssignmentStack.length)) {
-				
-				//you can't question the algorithm if you don't 
-				//understand it **points to brain**
-				AssignmentStack[(i*2)+1] = AssignmentStack[i] 
-						+ playNum/(2^((int) Math.floor(Math.log(i+1)/Math.log(2))));
-				AssignmentStack[(i*2)+2] = AssignmentStack[i] 
-						- playNum/(2^((int) Math.floor(Math.log(i+1)/Math.log(2))));
-				
-			}
-			else
-				break;
-		}
-		*/
 	}
 
 }

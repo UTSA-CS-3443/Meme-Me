@@ -26,13 +26,14 @@ public class ModeController implements EventHandler<ActionEvent> {
 	public void handle(ActionEvent arg0) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../view/CreateView.fxml"));
+			Main.stage.setTitle("Free Play Mode");
 			Main.stage.setScene(new Scene(root, 1100, 850));
 			Main.stage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
 			
 		}
-		//System.out.println("Free Play Clicked");
+		System.out.println("Free Play Clicked");
 	}
 
 	
@@ -40,7 +41,7 @@ public class ModeController implements EventHandler<ActionEvent> {
 		try {
 
 			Parent root = FXMLLoader.load(getClass().getResource("../view/pickPlayer.fxml"));
-
+			Main.stage.setTitle("Tournament Mode");
 			Main.stage.setScene(new Scene(root, 1000, 800));
 			Main.stage.show();
 		} catch(Exception e) {
@@ -55,6 +56,7 @@ public class ModeController implements EventHandler<ActionEvent> {
 		try {
 
 			Parent root = FXMLLoader.load(getClass().getResource("../view/pvp.fxml"));
+			Main.stage.setTitle(" Player vs Player Mode");
 			Main.stage.setScene(new Scene(root, 1000, 800));
 			Main.stage.show();
 		} catch(Exception e) {
@@ -62,7 +64,6 @@ public class ModeController implements EventHandler<ActionEvent> {
 		}
 		//System.out.println("Player vs. Player Clicked");
 		System.out.println("Player vs. Player Clicked");
-	}
-	
+	}	
 
 }

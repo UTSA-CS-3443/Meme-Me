@@ -54,10 +54,8 @@ public class CreateController implements EventHandler<ActionEvent>{
 	 private Button clear;
 	 @FXML
 	 private Group group;
-	
 	 @FXML
 	 private Button close;	
-	
 	 @FXML
 	 private TextField tf1;
 	 @FXML
