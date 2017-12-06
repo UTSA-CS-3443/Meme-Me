@@ -1,19 +1,18 @@
 package application;
 	
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
-import model.PlayerModel;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
-import java.util.ArrayList;
-import controller.TournamentController;
-
+/**
+ * The main class to start the application
+ * @author Katie Yarbough: Team Lead
+ * @author Danielle Lawrence
+ * @author Cheyenne Sanchez
+ * @author Paul Swenson
+ *
+ */
 public class Main extends Application {
 	public static Stage stage;
 	@Override

@@ -23,9 +23,6 @@ public class WelcomeController implements EventHandler<ActionEvent> {
 		}
 		
 	}
-
-	
-	
 	
 	
 }

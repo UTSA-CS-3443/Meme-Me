@@ -1,12 +1,10 @@
 package controller;
 
 import java.util.ArrayList;
-
 import application.Main;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import model.BracketModel;
 import model.PlayerModel;
 
 public class TournamentRunnerModel2{
@@ -23,9 +21,14 @@ public class TournamentRunnerModel2{
 	public PlayerModel bye;
 	public int sizeTourn;
 	public ArrayList<PlayerModel> winners = new ArrayList<PlayerModel>();
+	
+	/**
+	 * A constructor which prepares variables 
+	 * @param players
+	 * @param winnerList
+	 */
 	public TournamentRunnerModel2(ArrayList<PlayerModel> players, ArrayList<PlayerModel> winnerList) {
 		super();
-		//this.Players = players;
 		this.bye = new PlayerModel("bye");
 		this.Match = new PlayerModel[16];
 		SeededTournamentBuilder(players);
@@ -40,6 +43,7 @@ public class TournamentRunnerModel2{
 		this.matchNum = 1;
 		this.winners = winnerList;
 	}
+	
 	public TournamentRunnerModel2(ArrayList<PlayerModel> players, ArrayList<PlayerModel> winnerList, int roundNum, int matchNum) {
 		super();
 		//this.Players = players;
@@ -1159,9 +1163,7 @@ public class TournamentRunnerModel2{
 			break;
 		default:
 			break;
-		}
-
-		
+		}	
 		
 	}
 

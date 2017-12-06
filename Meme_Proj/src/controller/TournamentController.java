@@ -8,12 +8,24 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+/**
+ * A class that determines the type of tournament based on the number of players placed 
+ * into the player list 
+ * @author Katie Yarbough: Team Lead
+ * @author Danielle Lawrence
+ * @author Cheyenne Sanchez
+ * @author Paul Swenson
+ */
 public class TournamentController implements EventHandler<ActionEvent> {
 	TournamentRunnerModel tourn;
 	public TournamentController(ArrayList<PlayerModel> playerlist) {
 		super();
 		 this.tourn = new TournamentRunnerModel(playerlist);
 	}
+	
+	/**
+	 * A method that decides the type of tournament based on the number of players  
+	 */
 	@Override
 	public void handle(ActionEvent event) {
 		
@@ -35,5 +47,5 @@ public class TournamentController implements EventHandler<ActionEvent> {
 			e.printStackTrace();
 		}
 	}
-	// replace column one with players and byes
+	
 }

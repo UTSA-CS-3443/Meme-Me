@@ -38,14 +38,9 @@ public class VotePage implements EventHandler<ActionEvent>{
 	private PlayerModel play2;
 	private int numMatch;
 	private int numRound;
-	//private PlayerModel[] Match;
-	//private ArrayList<PlayerModel[]> Matches;
 	private Button win;
-	//private PlayerModel winner;
 	private ArrayList<PlayerModel> players = new ArrayList<PlayerModel>();
 	private int numBye;
-	//int roundNum;
-	//private TournamentRunnerModel2 tourn;
 	private ArrayList<PlayerModel> winnerList = new ArrayList<PlayerModel>();
 	
 	public void updateVotes1(ActionEvent event) {
@@ -102,12 +97,7 @@ public class VotePage implements EventHandler<ActionEvent>{
 				Tourn4Controller controller = fxmlLoader.<Tourn4Controller>getController();
 				controller.setUser4(this.numMatch, this.numBye);
 				controller.setUser(this.players, this.numRound);
-				//controller.setUser3(this.winner);
-				
-				//controller.setUser5(this.tourn.roundNum);
 				controller.setUser6(this.winnerList);
-				
-				//this.tourn = new TournamentRunnerModel2(this.players, this.winnerList, this.numRound);
 				Main.stage.setScene(new Scene(root, 1000,800));
 				Main.stage.show();
 			}
@@ -130,11 +120,7 @@ public class VotePage implements EventHandler<ActionEvent>{
 				Tourn8Controller controller = fxmlLoader.<Tourn8Controller>getController();
 				controller.setUser4(this.numMatch, this.numBye);
 				controller.setUser(this.players, this.numRound);
-				//controller.setUser3(this.winner);
-				
-				//controller.setUser3(this.winner);
 				controller.setUser6(this.winnerList);
-				//this.tourn = new TournamentRunnerModel2(this.players, this.winnerList, this.numRound);
 				Main.stage.setScene(new Scene(root, 1000,800));
 				Main.stage.show();
 			}

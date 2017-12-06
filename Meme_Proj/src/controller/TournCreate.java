@@ -2,17 +2,10 @@ package controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.awt.image.RenderedImage;
-import java.io.File;
-import java.io.IOException;
-
 import javax.imageio.ImageIO;
-
 import application.Main;
-import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -23,16 +16,22 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.WritableImage;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import javafx.stage.FileChooser.ExtensionFilter;
 import model.PlayerModel;
+
+/**
+ * A controller class that reflects the operations in the tournament create scene
+ * @author Katie Yarbough: Team Lead5
+ * @author Danielle Lawrence
+ * @author Cheyenne Sanchez
+ * @author Paul Swenson
+ *
+ */
 public class TournCreate {
 	private Image image1; 
 	private Image image2;
@@ -60,41 +59,82 @@ public class TournCreate {
 	ArrayList<PlayerModel> players = new ArrayList<PlayerModel>();
 	ArrayList<PlayerModel> winnerList = new ArrayList<PlayerModel>();
 	
+	/**
+	 * Sets image to view to user
+	 * @param event An event to occur when clicked
+	 */
 	public void setPicture(ActionEvent event) {
 		imgView.setImage(img);
 	}
+	/**
+	 * Saves the additions and deletions to  Player1's meme
+	 * @param event An event to occur when clicked
+	 */
 	public void goPlayer1(ActionEvent event) {
 		image1 = pane.snapshot(new SnapshotParameters(), null);
 		tf1.clear();
 		tf2.clear();
 		tf3.clear();
 	}
+	/**
+	 * Saves the additions and deletions to Player2's meme
+	 * @param event
+	 */
 	public void goPlayer2(ActionEvent event) {
 		image2 = pane.snapshot(new SnapshotParameters(), null);
 		tf1.clear();
 		tf2.clear();
 		tf3.clear();
 	}
+	/**
+	 * Changes the user's image and size
+	 * @param image The image to be changed
+	 * @param size An integer specifying the tournament size
+	 */
 	public void setUser(Image image, int size){
 	    this.img = image;
 	    this.sizeTourn = size;
 	}
+	/**
+	 * Changes the players of the game
+	 * @param player1 The player to be changed 
+	 * @param player2 The player to be changed
+	 */
 	public void setUser2(PlayerModel player1, PlayerModel player2) {
 		this.play1 = player1;
 		this.play2 = player2;
 	}
+	
+	/**
+	 * Changes the players in player list, match number and bye bumber  
+	 * @param playerlist The array list of players
+	 * @param matchNum The integer specifying the match number
+	 * @param numBye The integer specifying the bye number
+	 */
 	public void setUser3(ArrayList<PlayerModel> playerlist, int matchNum, int numBye) {
 		this.players = playerlist;
 		this.numMatch = matchNum;
 		this.numBye = numBye;
 	}
+	/**
+	 * Changes the round number
+	 * @param roundNum The integer specifying the number round
+	 */
 	public void setUser4(int roundNum) {
 		this.roundNum = roundNum;
 	}
+	/**
+	 * Changes the winners in the array list of winners
+	 * @param winners The array list of winners
+	 */
 	public void setUser5(ArrayList<PlayerModel> winners) {
 		this.winnerList = winners;
 	}
 	
+	/**
+	 * A method that saves a snapshot of an image as a png file
+	 * @param event Event to occur
+	 */
 	public void saveFunction(ActionEvent event) {
 		Image image = pane.snapshot(new SnapshotParameters(), null);
 		FileChooser fileChooser = new FileChooser();
@@ -109,12 +149,20 @@ public class TournCreate {
             }
         }
 	}
+	/**
+	 * An event that will close the application
+	 * @param event Event to occur once clicked
+	 */
 	public void clearFunction(ActionEvent event) {
 		//imgView.setImage(null);
 		tf1.clear();
 		tf2.clear();
 		tf3.clear();
 	}
+	/**
+	 * Inserts a line of text user input into text areas on top, middle, or bottom of the images
+	 * @param event Event to occur once clicked
+	 */
 	public void insertLine(ActionEvent event) {
 		try {
 	
@@ -152,7 +200,11 @@ public class TournCreate {
 			ex.printStackTrace();
 		}
 	}	
-	//@FXML
+	
+	/**
+	 * A method that directs the player to the vote page 
+	 * @param event An event to occur once clicked
+	 */
 	public void voteHandle(ActionEvent event) {
 		if(!image1.equals(null) && !image2.equals(null)) {
 			try {
@@ -165,8 +217,8 @@ public class TournCreate {
 				controller.setUser3(this.players, this.numMatch, this.numBye);
 				controller.setUser4(this.roundNum);
 				controller.setUser5(this.winnerList);
-
 				Main.stage.setScene(new Scene(root, 1250,800));
+				Main.stage.setTitle("Vote Page");
 				Main.stage.show();
 			}
 			catch(Exception e) {

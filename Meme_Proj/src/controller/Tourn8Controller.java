@@ -11,17 +11,20 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import model.PlayerModel;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 
+/**
+ * A class that runs through all the players in a 8 player tournament and determines the players positions and a 
+ * bye position based on the number of players
+ * @author Katie Yarbough: Team Lead
+ * @author Danielle Lawrence
+ * @author Cheyenne Sanchez
+ * @author Paul Swenson
+ *
+ */
 public class Tourn8Controller implements EventHandler<ActionEvent>{
 
-	ArrayList<PlayerModel> playerlist = new ArrayList<PlayerModel>();
-	
-	TournamentRunnerModel2 tourn;
-	
-	//= new TournamentRunnerModel2(playerlist, this.winners);
+	ArrayList<PlayerModel> playerlist = new ArrayList<PlayerModel>();	
+	TournamentRunnerModel2 tourn;	
 	@FXML 
 	private Button b1;
 	@FXML 
@@ -55,12 +58,16 @@ public class Tourn8Controller implements EventHandler<ActionEvent>{
 	@FXML
 	private Button done;
 	private ArrayList<PlayerModel> winners = new ArrayList<PlayerModel>();
+	@SuppressWarnings("unused")
 	private int votes1, votes2;
 	private PlayerModel bye = new PlayerModel("bye");
 	int iMatch;
 	int numBye;
+	/**
+	 * A method that determines a number of of byes by players entered in the game, 
+	 * sets the players names in game positions  
+	 */
 	public void handle(ActionEvent event) {
-		// TODO Auto-generated method stub
 		//set up
 				if (this.numBye == 0) {
 					this.tourn.matchNum = 1;
@@ -148,11 +155,13 @@ public class Tourn8Controller implements EventHandler<ActionEvent>{
 				}
 				
 	}
+	/**
+	 * A method that will place player into their match positions and place them into their advancing placements.
+	 * @param event An event to occur
+	 */
 	public void goHandle(ActionEvent event) {
-		//this.bye.setName("bye");
 		if(this.tourn.roundNum == 1) {
 			if (this.tourn.matchNum == 1) {
-				//this.tourn.matchNum++;
 				if(this.tourn.Players8.get(0) == null) {
 					this.tourn.Match[0] = this.bye;
 					this.tourn.Match[1] = this.tourn.Players8.get(1);
@@ -229,35 +238,72 @@ public class Tourn8Controller implements EventHandler<ActionEvent>{
 	
 		
 	}
+	/**
+	 * A method that places the players into the players list and places them into the 8 player tournament
+	 * @param players An array list reference call to the PlayerModel
+	 */
 	public void setUser(ArrayList<PlayerModel> players) {
 		System.out.println(players.size());
 		this.playerlist = players;
 		this.tourn = new TournamentRunnerModel2(players, this.winners);
 	}
+	/**
+	 * A method that places the players into the players list, places them into the 8 player tournament
+	 * and sets them to a players to a round in the tournament in which they are advancing to
+	 * @param players A reference to an arrayList built from PlayerModel
+	 * @param roundNum An integer specifying the round number
+	 */
 	public void setUser(ArrayList<PlayerModel> players, int roundNum) {
 		System.out.println(players.size());
 		this.playerlist = players;
 		this.tourn = new TournamentRunnerModel2(players, this.winners, roundNum, this.iMatch);
 		this.iMatch = this.tourn.matchNum;
 	}
+	/**
+	 * A method that will set the votes to integer value
+	 * @param vote1 An integer specifying the number of votes for vote1
+	 * @param vote2 An integer specifying the number of votes for vote2
+	 */
 	public void setUser2(int vote1, int vote2) {
 		this.votes1 = vote1;
 		this.votes2 = vote2;
 	}
+	
+	/**
+	 * A method that will add the winner to the winner's circle
+	 * @param winner A reference to the PlayerModel for this winner
+	 */
 	public void setUser3(PlayerModel winner) {
 		this.winners.add(winner);
 	}
+	/**
+	 * A method to set an integer to the game matches and number of byes 
+	 * @param match An integer specifying the match 
+	 * @param numBye An integer specifying number of byes
+	 */
 	public void setUser4(int match, int numBye) {
 		this.iMatch = match;
 		this.numBye = numBye;
 	}
+	/**
+	 * A method to set an integer to a game round number
+	 * @param roundNum An integer specifying the round number  
+	 */
 	public void setUser5(int roundNum) {
 		this.tourn.roundNum = roundNum;
 	}
+	/**
+	 * A method to set winners in the winner list within tournament
+	 * @param winnerList A reference to an array list based on Player Model
+	 */
 	public void setUser6(ArrayList<PlayerModel> winnerList) {
 		this.tourn.winners = winnerList;
 		
 	}
+	/**
+	 * A function to direct winner of tournament to congratulations  page
+	 * @param event An event to occur
+	 */
 	public void doneFunction(ActionEvent event) {
 		 		try {
 		 			Parent root = FXMLLoader.load(getClass().getResource("../view/Congrats.fxml"));

@@ -39,6 +39,7 @@ public class Tourn4Controller implements EventHandler<ActionEvent>{
 	@FXML
 	private Button done;
 	private ArrayList<PlayerModel> winners = new ArrayList<PlayerModel>();
+	@SuppressWarnings("unused")
 	private int votes1, votes2;
 	private PlayerModel bye = new PlayerModel("bye");
 	int iMatch;
@@ -93,8 +94,8 @@ public class Tourn4Controller implements EventHandler<ActionEvent>{
 	}
 	
 	/**
-	 * A method that will 
-	 * @param event
+	 * A method that will place player into their match positions and place them into their advancing placements.
+	 * @param event An event to occur
 	 */
 	public void goHandle(ActionEvent event) {
 		if(this.tourn.roundNum == 1) {
@@ -131,47 +132,84 @@ public class Tourn4Controller implements EventHandler<ActionEvent>{
 					this.tourn.Match[1] = this.tourn.winners.get(1);
 					this.tourn.RunRound();
 				}
-	
 			}
-		
 	}
+	
+	/**
+	 * A method that places the players into the players list and places them into the 4 player tournament
+	 * @param players An array list reference call to the PlayerModel
+	 */
 	public void setUser(ArrayList<PlayerModel> players) {
 		System.out.println(players.size());
 		this.playerlist = players;
 		this.tourn = new TournamentRunnerModel2(players, this.winners);
 	}
+	/**
+	 * A method that places the players into the players list, places them into the 4 player tournament
+	 * and sets them to a players to a round in the tournament in which they are advancing to
+	 * @param players A reference to an arrayList built from PlayerModel
+	 * @param roundNum An integer specifying the round number
+	 */
 	public void setUser(ArrayList<PlayerModel> players, int roundNum) {
 		System.out.println(players.size());
 		this.playerlist = players;
 		this.tourn = new TournamentRunnerModel2(players, this.winners, roundNum, this.iMatch);
 		this.iMatch = this.tourn.matchNum;
 	}
+	/**
+	 * A method that will set the votes to integer value
+	 * @param vote1 An integer specifying the number of votes for vote1
+	 * @param vote2 An integer specifying the number of votes for vote2
+	 */
 	public void setUser2(int vote1, int vote2) {
 		this.votes1 = vote1;
 		this.votes2 = vote2;
 	}
+	/**
+	 * A method that will add the winner to the winner's circle
+	 * @param winner A reference to the PlayerModel for this winner
+	 */
 	public void setUser3(PlayerModel winner) {
 		this.winners.add(winner);
 	}
+	
+	/**
+	 * A method to set an integer to the game matches and number of byes 
+	 * @param match An integer specifying the match 
+	 * @param numBye An integer specifying number of byes
+	 */
 	public void setUser4(int match, int numBye) {
 		this.iMatch = match;
 		this.numBye = numBye;
 	}
+	
+	/**
+	 * A method to set an integer to a game round number
+	 * @param roundNum An integer specifying the round number  
+	 */
 	public void setUser5(int roundNum) {
 		this.tourn.roundNum = roundNum;
 	}
+	/**
+	 * A method to set winners in the winner list within tournament
+	 * @param winnerList A reference to an array list based on Player Model
+	 */
 	public void setUser6(ArrayList<PlayerModel> winnerList) {
 		this.tourn.winners = winnerList;
 		
 	}
+	/**
+	 * A function to direct winner of tournament to congratulations  page
+	 * @param event An event to occur
+	 */
 	public void doneFunction(ActionEvent event) {
  		try {
  			Parent root = FXMLLoader.load(getClass().getResource("../view/Congrats.fxml"));
  			Main.stage.setScene(new Scene(root, 700, 600));
+ 			Main.stage.setTitle("Congrats");
  			Main.stage.show();
  		} catch(Exception e) {
  			e.printStackTrace();
  		}
 	}
-
 }
