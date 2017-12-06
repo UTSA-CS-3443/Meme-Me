@@ -6,7 +6,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import model.PlayerModel;
-
+/**
+ * @author Katie Yarbough: Team Lead5
+ * @author Danielle Lawrence
+ * @author Cheyenne Sanchez
+ * @author Paul Swenson
+ *
+ */
 public class TournamentRunnerModel2{
 	PlayerModel[] Match;
 	PlayerModel[] Match2;
@@ -23,9 +29,9 @@ public class TournamentRunnerModel2{
 	public ArrayList<PlayerModel> winners = new ArrayList<PlayerModel>();
 	
 	/**
-	 * A constructor which prepares variables 
-	 * @param players
-	 * @param winnerList
+	 * A constructor which prepares variables into tournament model consisting of players and a winner's list
+	 * @param players An array list of players
+	 * @param winnerList An array list of winners
 	 */
 	public TournamentRunnerModel2(ArrayList<PlayerModel> players, ArrayList<PlayerModel> winnerList) {
 		super();
@@ -44,9 +50,16 @@ public class TournamentRunnerModel2{
 		this.winners = winnerList;
 	}
 	
+	/**
+	 * A constructor which prepares variables into tournament model consisting of players, a winner's list,
+	 * a round number, and a match number
+	 * @param players  An arrayList of players
+	 * @param winnerList An arrayList of winners
+	 * @param roundNum An integer specifying a round number
+	 * @param matchNum An integer specifying a match number
+	 */
 	public TournamentRunnerModel2(ArrayList<PlayerModel> players, ArrayList<PlayerModel> winnerList, int roundNum, int matchNum) {
 		super();
-		//this.Players = players;
 		this.bye = new PlayerModel("bye");
 		this.Match = new PlayerModel[16];
 		SeededTournamentBuilder(players);
@@ -62,7 +75,6 @@ public class TournamentRunnerModel2{
 		if (this.matchNum == 0) {
 			this.matchNum = 1;
 		}
-		
 		
 		if (this.sizeTourn == 4) {
 			if(this.roundNum == 1 && this.matchNum == 3) {
@@ -100,6 +112,13 @@ public class TournamentRunnerModel2{
 		}
 		this.winners = winnerList;
 	}
+	
+	/**
+	 *  A constructor that consists of player, a match , and a winner list
+	 * @param players An arrayList of players
+	 * @param iMatch An integer specifying an iMatch
+	 * @param winnerList An arrayList of winners
+	 */
 	public TournamentRunnerModel2(ArrayList<PlayerModel> players, int iMatch, ArrayList<PlayerModel> winnerList) {
 		super();
 		this.bye = new PlayerModel("bye");
@@ -118,7 +137,9 @@ public class TournamentRunnerModel2{
 	}
 
 	
-	//methods
+	/**
+	 * Runs the rounds through various levels, dependent on the number of players and their out comes 
+	 */
 	public void RunRound() {
 		
 			if (this.roundNum == 1) {
@@ -177,9 +198,7 @@ public class TournamentRunnerModel2{
 						}catch(Exception e) {
 							e.printStackTrace();
 						}
-					}
-					
-				
+					}			
 				
 			}else if(this.matchNum == 2) {
 				if (this.Match[2].getName().equals("bye") || this.Match[3].getName().equals("bye")) {
@@ -951,11 +970,13 @@ public class TournamentRunnerModel2{
 						}
 					}
 				}
-			}
-			
-			
-			
+			}		
 	}
+	
+	/**
+	 * A method that breaks up the number of players and place them into a corresponding model to their tournament number 
+	 * @param players
+	 */
 	private void SeededTournamentBuilder(ArrayList<PlayerModel> players) {
 		
 		//for ease of use later

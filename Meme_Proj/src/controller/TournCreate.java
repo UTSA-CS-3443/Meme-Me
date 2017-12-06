@@ -78,7 +78,7 @@ public class TournCreate {
 	}
 	/**
 	 * Saves the additions and deletions to Player2's meme
-	 * @param event
+	 * @param event An event to occur when clicked
 	 */
 	public void goPlayer2(ActionEvent event) {
 		image2 = pane.snapshot(new SnapshotParameters(), null);
@@ -106,7 +106,7 @@ public class TournCreate {
 	}
 	
 	/**
-	 * Changes the players in player list, match number and bye bumber  
+	 * Changes the players in player list, match number and bye number  
 	 * @param playerlist The array list of players
 	 * @param matchNum The integer specifying the match number
 	 * @param numBye The integer specifying the bye number
