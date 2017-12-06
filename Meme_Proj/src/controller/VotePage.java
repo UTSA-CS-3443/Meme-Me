@@ -7,7 +7,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-//import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -15,6 +14,14 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import model.PlayerModel;
+/**
+ * 
+ * @author Katie Yarbough: Team Lead5
+ * @author Danielle Lawrence
+ * @author Cheyenne Sanchez
+ * @author Paul Swenson
+ *
+ */
 
 public class VotePage implements EventHandler<ActionEvent>{
 	@FXML
@@ -193,7 +200,7 @@ public class VotePage implements EventHandler<ActionEvent>{
 	}
 	@Override
 	public void handle(ActionEvent event) {
-		// TODO Auto-generated method stub
+		//Ignore, for implementation use only 
 		
 	}
 	

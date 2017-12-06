@@ -2,16 +2,15 @@ package model;
 
 import java.util.ArrayList;
 
-
-//http://code.makery.ch/library/javafx-8-tutorial/part2/
-	// this is a guide to help
-
+/**
+ * A generic class creates a model for the free play create controller
+ * @author Katie Yarbough: Team Lead
+ * @author Danielle Lawrence
+ * @author Cheyenne Sanchez
+ * @author Paul Swenson
+ * @param <E>
+ */
 public class CreateModel<E> {
-	
-	
-	
-	/// USE for undo and redo stck or hashmap
-	
 	
 	
 	/**
@@ -118,8 +117,5 @@ public class CreateModel<E> {
 	public String getCreator() {
 		return this.creator;
 	}
-	
-	//public Image loadImage(File)
-	
 		
 }

@@ -1,25 +1,24 @@
 package model;
 
-import java.awt.EventQueue;
-import java.util.ArrayList;
-
-import javax.swing.JFrame;
-
-//import javafx.scene.control.Spinner;
-
+/**
+ * A model class to describe votes
+ * @author Katie Yarbough: Team Lead5
+ * @author Danielle Lawrence
+ * @author Cheyenne Sanchez
+ * @author Paul Swenson
+ *
+ */
 public class VoteModel{
 	
 	 int player1;
 	 int player2;
 	 
-	public VoteModel(int player1, int player2) {
-//		player1.votes = this;
-//		player2.votes = this;
-//	
-	}
-	
-	
-	
-	
+	 /**
+	  * An empty constructor for vote model
+	  * @param player1
+	  * @param player2
+	  */
+	public VoteModel(int player1, int player2) {	
+	}	
 
 }

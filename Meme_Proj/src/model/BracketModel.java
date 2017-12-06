@@ -8,8 +8,10 @@ import java.util.ArrayList;
  * 
  * It will define how a bracket is generated and
  * who plays in what match.
- * 
- * @author paul
+ * @author Katie Yarbough: Team Lead5
+ * @author Danielle Lawrence
+ * @author Cheyenne Sanchez
+ * @author Paul Swenson
  */
 public abstract class BracketModel {
 	
@@ -18,24 +20,31 @@ public abstract class BracketModel {
 									//of players in the round
 	public PlayerModel[] Tournament;		//the tournament bracket
 	
-	//Constructor
+	/**
+	 * Constructs a bracket model with players that call the tournament and set matches methods
+	 * @param players
+	 */
 	public BracketModel(ArrayList<PlayerModel> players) {
 		
-		//TODO error check Players arraylist to ensure no bugs
 		//We are assuming a valid positive integer number of players
 		Players = players;
-		
-		//call tournament builder and set match methods
 		SeededTournamentBuilder();
 		SetMatches();
 	}
 	
-	
-	//Getters and Setters
+
+	/**
+	 * Returns the players in the arraylist
+	 * @return array list of players
+	 */
 	public ArrayList<PlayerModel> getPlayers() {
 		return Players;
 	}
 
+	/**
+	 * Changes the players in the arraylist 
+	 * @param players The arrayList to be changed 
+	 */
 	public void setPlayers(ArrayList<PlayerModel> players) {
 		Players = players;
 	}
@@ -44,6 +53,10 @@ public abstract class BracketModel {
 	//Classmates: you can't just spend 20 hours rewriting
 	//	code just because this one runs a little bit faster.
 	//Me:
+	/**
+	 * A beautiful algorithm written by oh so wonderful Paul(Cheyenne says so and Katie and Danielle concur with this notion)
+	 * that does exactly what is say on the inside comments
+	 */
 	private void SeededTournamentBuilder() {
 		
 		//for ease of use later
@@ -86,15 +99,16 @@ public abstract class BracketModel {
 						+ playNum/(2^((int) Math.floor(Math.log(i+1)/Math.log(2))));
 				AssignmentStack[(i*2)+2] = AssignmentStack[i] 
 						- playNum/(2^((int) Math.floor(Math.log(i+1)/Math.log(2))));
-				
 			}
 			else
 				break;
 		}
-		
 		return;
 	}
 	
+	/**
+	 * Gets and assigns the number of player in the tournament, assign number of players in each match
+	 */
 	private void SetMatches() {
 		
 		//get number of players in the tournament
@@ -105,8 +119,7 @@ public abstract class BracketModel {
 		for(int match : Matches) {
 			this.Matches[match] = playNum;
 			playNum = playNum/2 + playNum%2;
-		}
-		
+		}		
 		return;
 	}
 
