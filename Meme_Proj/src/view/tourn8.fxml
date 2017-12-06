@@ -91,7 +91,7 @@
                   
                   <Button fx:id="b41" mnemonicParsing="false" prefHeight="132.0" prefWidth="236.0" text="TBD" GridPane.columnIndex="6" GridPane.rowIndex="7" />
                   
-                  <Button mnemonicParsing="false" onAction="#handle" prefHeight="55.0" prefWidth="40.0" text="Set" GridPane.columnIndex="5" />
+                  <Button mnemonicParsing="false" onAction="#handle" prefHeight="54.0" prefWidth="56.0" text="Set" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                	  
                    <Button fx:id="done" mnemonicParsing="false" onAction="#doneFunction" prefHeight="31.0" prefWidth="73.0" text="Done" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="13" />
                </children>

@@ -212,7 +212,7 @@
                         <Font name="Arial" size="15.0" />
                      </font></Button>
                   
-                  <Button mnemonicParsing="false" onAction="#goHandle" prefHeight="27.0" prefWidth="42.0" text="Go" GridPane.columnIndex="8" />
+                  <Button mnemonicParsing="false" onAction="#goHandle" prefHeight="26.0" prefWidth="40.0" text="Go" GridPane.columnIndex="8" />
                   
                   <Button fx:id="b51" mnemonicParsing="false" prefHeight="27.0" prefWidth="210.0" text="TBD" GridPane.columnIndex="8" GridPane.rowIndex="15">
                      <font>

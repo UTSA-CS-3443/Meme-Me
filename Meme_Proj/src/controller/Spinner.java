@@ -1,14 +1,13 @@
 package controller;
 import java.awt.EventQueue;
-import java.awt.GraphicsEnvironment;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.text.DateFormat;
 import javax.swing.JFrame;
 
 /**
- * A program to test spinners.
+ * A class to test spinners.
+ * @author Katie Yarbough: Team Lead
+ * @author Danielle Lawrence
+ * @author Cheyenne Sanchez
+ * @author Paul Swenson
  */
 public class Spinner
 {
@@ -16,6 +15,9 @@ public class Spinner
    {
       EventQueue.invokeLater(new Runnable()
          {
+    	  /**
+    	   * A method to run the spinner frame
+    	   */
             public void run()
             {
                SpinnerFrame frame = new SpinnerFrame();

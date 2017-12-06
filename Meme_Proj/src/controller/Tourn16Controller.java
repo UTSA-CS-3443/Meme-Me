@@ -15,7 +15,6 @@ import model.PlayerModel;
 public class Tourn16Controller implements EventHandler<ActionEvent>{
 	ArrayList<PlayerModel> playerlist = new ArrayList<PlayerModel>();
 	TournamentRunnerModel2 tourn;
-	//= new TournamentRunnerModel2(playerlist, this.winners);
 	@FXML 
 	private Button b1;
 	@FXML 
@@ -86,7 +85,6 @@ public class Tourn16Controller implements EventHandler<ActionEvent>{
 	int iMatch;
 	int numBye;
 	public void handle(ActionEvent event) {
-		// TODO Auto-generated method stub
 		//set up
 				if (this.numBye == 0) {
 					this.tourn.matchNum = 1;
@@ -159,9 +157,7 @@ public class Tourn16Controller implements EventHandler<ActionEvent>{
 					b16.setText("bye");
 				}else {
 					b16.setText(this.tourn.Players16.get(15).name);	
-				}
-				
-				
+				}				
 				
 				if(this.tourn.roundNum == 1){
 					if (this.tourn.matchNum == 1) {
@@ -202,7 +198,6 @@ public class Tourn16Controller implements EventHandler<ActionEvent>{
 						b26.setText(this.tourn.winners.get(5).name);
 						b27.setText(this.tourn.winners.get(6).name);
 					}
-					
 					
 				}else if(this.tourn.roundNum == 2) {
 					if(this.tourn.matchNum == 1) {
@@ -504,6 +499,7 @@ public class Tourn16Controller implements EventHandler<ActionEvent>{
  		try {
  			Parent root = FXMLLoader.load(getClass().getResource("../view/Congrats.fxml"));
  			Main.stage.setScene(new Scene(root, 700, 600));
+ 			Main.stage.setTitle("Congrats");
  			Main.stage.show();
  		} catch(Exception e) {
  			e.printStackTrace();

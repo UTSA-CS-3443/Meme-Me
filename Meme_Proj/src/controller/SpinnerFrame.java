@@ -1,25 +1,29 @@
 package controller;
 import java.awt.BorderLayout;
-import java.awt.GraphicsEnvironment;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
-
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
-import javax.swing.SpinnerNumberModel;
-
 import javafx.event.ActionEvent;
 
 /**
  * A frame with a panel that contains several spinners and a button that displays the spinner
  * values.
+ * @author Katie Yarbough: Team Lead
+ * @author Danielle Lawrence
+ * @author Cheyenne Sanchez
+ * @author Paul Swenson
  */
 public class SpinnerFrame extends JFrame
 {
+	   public static final int DEFAULT_WIDTH = 10;
+	   public static final int DEFAULT_HEIGHT = 10;
+
+	   private JPanel mainPanel;
+	   private JButton okButton;
    public SpinnerFrame()
    {
       setTitle("SpinnerTest");
@@ -61,9 +65,5 @@ public class SpinnerFrame extends JFrame
          });
    }
 
-   public static final int DEFAULT_WIDTH = 10;
-   public static final int DEFAULT_HEIGHT = 10;
 
-   private JPanel mainPanel;
-   private JButton okButton;
 }

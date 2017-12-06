@@ -32,27 +32,27 @@ public class ModeController implements EventHandler<ActionEvent> {
 	}
 	
 	/**
-	 * 
-	 * @param event
+	 * A method that will direct user to the tournament window and portion of the app once clicked
+	 * @param event An event to occur
 	 */
 	public void tournamenthandle(ActionEvent event) {
 		try {
-
 			Parent root = FXMLLoader.load(getClass().getResource("../view/pickPlayer.fxml"));
 			Main.stage.setTitle("Tournament Mode");
 			Main.stage.setScene(new Scene(root, 1000, 800));
 			Main.stage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
-		}
-		
+		}		
 		System.out.println("Tournament Clicked");	
 	}
 
-	
+	/**
+	 * A method that will direct user to the Player vs Player window and portion of the app 
+	 * @param event An event to occur
+	 */
 	public void playerhandle(ActionEvent event) {
 		try {
-
 			Parent root = FXMLLoader.load(getClass().getResource("../view/pvp.fxml"));
 			Main.stage.setTitle(" Player vs Player Mode");
 			Main.stage.setScene(new Scene(root, 1000, 800));
@@ -60,7 +60,6 @@ public class ModeController implements EventHandler<ActionEvent> {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		//System.out.println("Player vs. Player Clicked");
 		System.out.println("Player vs. Player Clicked");
 	}	
 

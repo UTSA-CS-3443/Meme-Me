@@ -7,10 +7,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-
 import java.util.ArrayList;
-
 import application.Main;
+
+/**
+ * A class that runs through all the players in a 4 player tournament and determines the players positions and a 
+ * bye position based on the number of players
+ * @author Katie Yarbough: Team Lead
+ * @author Danielle Lawrence
+ * @author Cheyenne Sanchez
+ * @author Paul Swenson
+ *
+ */
 public class Tourn4Controller implements EventHandler<ActionEvent>{
 	ArrayList<PlayerModel> playerlist = new ArrayList<PlayerModel>();
 	TournamentRunnerModel2 tourn;
@@ -35,16 +43,18 @@ public class Tourn4Controller implements EventHandler<ActionEvent>{
 	private PlayerModel bye = new PlayerModel("bye");
 	int iMatch;
 	int numBye;
+	
+	/**
+	 * A method that determines a number of of byes by players entered in the game 
+	 */
 	@Override
 	public void handle(ActionEvent event) {
-		// TODO Auto-generated method stub
 		//set up
 				if (this.numBye == 0) {
 					this.tourn.matchNum = 1;
 				}else if (this.numBye == 1) {
 					this.tourn.matchNum = this.iMatch;	
 				}
-				
 				
 				if (this.tourn.Players4.get(0) == null) {
 					b1.setText("bye");
@@ -80,13 +90,15 @@ public class Tourn4Controller implements EventHandler<ActionEvent>{
 					b22.setText(this.tourn.winners.get(1).name);
 					b31.setText(this.tourn.winners.get(2).name);
 				}
-				
 	}
+	
+	/**
+	 * A method that will 
+	 * @param event
+	 */
 	public void goHandle(ActionEvent event) {
-		//this.bye.setName("bye");
 		if(this.tourn.roundNum == 1) {
 			if (this.tourn.matchNum == 1) {
-				//this.tourn.matchNum++;
 				if(this.tourn.Players4.get(0) == null) {
 					this.tourn.Match[0] = this.bye;
 					this.tourn.Match[1] = this.tourn.Players4.get(1);
