@@ -39,54 +39,59 @@
          <children>
             <Button fx:id="b1" mnemonicParsing="false" prefHeight="113.0" prefWidth="307.0" text="1">
                <font>
-                  <Font name="Arial Narrow" size="46.0" />
-               </font>
-            </Button>
+                    <Font name="Arial Narrow" size="46.0" />
+                 </font>
+              </Button>
             <Button fx:id="b2" mnemonicParsing="false" prefHeight="163.0" prefWidth="307.0" text="2" GridPane.rowIndex="2">
                <font>
-                  <Font name="Arial Narrow" size="46.0" />
-               </font>
-            </Button>
+                    <Font name="Arial Narrow" size="46.0" />
+                 </font>
+              </Button>
             <Button fx:id="b3" mnemonicParsing="false" prefHeight="143.0" prefWidth="307.0" text="3" GridPane.rowIndex="4">
                <font>
-                  <Font name="Arial Narrow" size="46.0" />
-               </font>
-            </Button>
+                    <Font name="Arial Narrow" size="46.0" />
+                 </font>
+              </Button>
             <Button fx:id="b4" mnemonicParsing="false" prefHeight="143.0" prefWidth="307.0" text="4" GridPane.rowIndex="6">
                <font>
-                  <Font name="Arial Narrow" size="46.0" />
-               </font>
-            </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goHandle" prefHeight="127.0" prefWidth="133.0" text="Go" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+                    <Font name="Arial Narrow" size="46.0" />
+                 </font>
+              </Button>
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goHandle" prefHeight="127.0" prefWidth="133.0" text="Go" GridPane.columnIndex="4" GridPane.rowIndex="6">
                <font>
-                  <Font name="Arial Narrow" size="46.0" />
-               </font>
-            </Button>
+
+                    <Font name="Arial Narrow" size="46.0" />
+                 </font>
+              </Button>
+
             <Button fx:id="b31" mnemonicParsing="false" prefHeight="159.0" prefWidth="353.0" text="TBD" GridPane.columnIndex="4" GridPane.rowIndex="3">
                <font>
-                  <Font name="Arial Narrow" size="46.0" />
-               </font>
-            </Button>
+
+                    <Font name="Arial Narrow" size="46.0" />
+                 </font>
+              </Button>
             <Button fx:id="b21" mnemonicParsing="false" prefHeight="177.0" prefWidth="397.0" text="TBD" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
-                  <Font name="Arial Narrow" size="46.0" />
-               </font>
-            </Button>
+
+                    <Font name="Arial Narrow" size="46.0" />
+                 </font>
+              </Button>
             <Button fx:id="b22" mnemonicParsing="false" prefHeight="197.0" prefWidth="413.0" text="TBD" GridPane.columnIndex="2" GridPane.rowIndex="5">
                <font>
-                  <Font name="Arial Narrow" size="46.0" />
-               </font>
-            </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handle" prefHeight="103.0" prefWidth="149.0" text="Set " GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+                    <Font name="Arial Narrow" size="46.0" />
+                 </font>
+              </Button>
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handle" prefHeight="103.0" prefWidth="137.0" text="Set " GridPane.columnIndex="4" GridPane.rowIndex="5">
+
                <font>
-                  <Font name="Arial Narrow" size="46.0" />
-               </font>
-            </Button>
+                    <Font name="Arial Narrow" size="46.0" />
+                 </font>
+              </Button>
             <Button fx:id="done" alignment="CENTER" mnemonicParsing="false" onAction="#doneFunction" text="Done" GridPane.columnIndex="4" GridPane.halignment="CENTER">
-               <font>
-                  <Font name="Arial Narrow" size="34.0" />
-               </font>
-            </Button>
+                 <font>
+                    <Font name="Arial Narrow" size="34.0" />
+                 </font>
+             </Button>
          </children>
       </GridPane>
    </children>

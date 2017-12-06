@@ -7,7 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
+//import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -37,13 +37,16 @@ public class VotePage implements EventHandler<ActionEvent>{
 	private PlayerModel play1;
 	private PlayerModel play2;
 	private int numMatch;
-	private PlayerModel[] Match;
-	private ArrayList<PlayerModel[]> Matches;
+	private int numRound;
+	//private PlayerModel[] Match;
+	//private ArrayList<PlayerModel[]> Matches;
 	private Button win;
-	private PlayerModel winner;
+	//private PlayerModel winner;
 	private ArrayList<PlayerModel> players = new ArrayList<PlayerModel>();
 	private int numBye;
-	private TournamentRunnerModel2 tourn;
+	//int roundNum;
+	//private TournamentRunnerModel2 tourn;
+	private ArrayList<PlayerModel> winnerList = new ArrayList<PlayerModel>();
 	
 	public void updateVotes1(ActionEvent event) {
 		this.votes1+= 1;
@@ -87,9 +90,9 @@ public class VotePage implements EventHandler<ActionEvent>{
 			this.play1.setVotes(this.votes1);
 			this.play2.setVotes(this.votes2);
 			if (this.play1.getVotes() >= this.play2.getVotes()) {
-				this.winner = this.play1;
+				this.winnerList.add(this.play1);
 			}else {
-				this.winner = this.play2;
+				this.winnerList.add(this.play2);
 			}
 			this.play1.setTotalVotes(this.votes1);
 			this.play2.setTotalVotes(this.votes2);
@@ -97,9 +100,14 @@ public class VotePage implements EventHandler<ActionEvent>{
 				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/tourn4.fxml")); 
 				root = (Parent)fxmlLoader.load(); 
 				Tourn4Controller controller = fxmlLoader.<Tourn4Controller>getController();
-				controller.setUser(this.players);
-				controller.setUser3(this.winner);
 				controller.setUser4(this.numMatch, this.numBye);
+				controller.setUser(this.players, this.numRound);
+				//controller.setUser3(this.winner);
+				
+				//controller.setUser5(this.tourn.roundNum);
+				controller.setUser6(this.winnerList);
+				
+				//this.tourn = new TournamentRunnerModel2(this.players, this.winnerList, this.numRound);
 				Main.stage.setScene(new Scene(root, 1000,800));
 				Main.stage.show();
 			}
@@ -109,13 +117,24 @@ public class VotePage implements EventHandler<ActionEvent>{
 		}else if(this.sizeTourn == 8) {
 			this.play1.setVotes(this.votes1);
 			this.play2.setVotes(this.votes2);
+			if (this.play1.getVotes() >= this.play2.getVotes()) {
+				this.winnerList.add(this.play1);
+			}else {
+				this.winnerList.add(this.play2);
+			}
 			this.play1.setTotalVotes(this.votes1);
 			this.play2.setTotalVotes(this.votes2);
 			try {
 				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/tourn8.fxml")); 
 				root = (Parent)fxmlLoader.load(); 
 				Tourn8Controller controller = fxmlLoader.<Tourn8Controller>getController();
-				controller.setUser3(this.winner);
+				controller.setUser4(this.numMatch, this.numBye);
+				controller.setUser(this.players, this.numRound);
+				//controller.setUser3(this.winner);
+				
+				//controller.setUser3(this.winner);
+				controller.setUser6(this.winnerList);
+				//this.tourn = new TournamentRunnerModel2(this.players, this.winnerList, this.numRound);
 				Main.stage.setScene(new Scene(root, 1000,800));
 				Main.stage.show();
 			}
@@ -125,13 +144,24 @@ public class VotePage implements EventHandler<ActionEvent>{
 		}else if(this.sizeTourn == 16) {
 			this.play1.setVotes(this.votes1);
 			this.play2.setVotes(this.votes2);
+			if (this.play1.getVotes() >= this.play2.getVotes()) {
+				this.winnerList.add(this.play1);
+			}else {
+				this.winnerList.add(this.play2);
+			}
 			this.play1.setTotalVotes(this.votes1);
 			this.play2.setTotalVotes(this.votes2);
 			try {
 				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/tourn16.fxml")); 
 				root = (Parent)fxmlLoader.load(); 
 				Tourn16Controller controller = fxmlLoader.<Tourn16Controller>getController();
-				controller.setUser3(this.winner);
+				//controller.setUser3(this.winner);
+				controller.setUser4(this.numMatch, this.numBye);
+				controller.setUser(this.players, this.numRound);
+				//controller.setUser3(this.winner);
+				
+				controller.setUser6(this.winnerList);
+				//this.tourn = new TournamentRunnerModel2(this.players, this.winnerList, this.numRound);
 				Main.stage.setScene(new Scene(root, 1000,800));
 				Main.stage.show();
 			}
@@ -157,10 +187,18 @@ public class VotePage implements EventHandler<ActionEvent>{
 		this.play1 = play12;
 		this.play2 = play22;
 	}
-	public void setUser3(ArrayList<PlayerModel> playerlist, int matchNum) {
+	public void setUser3(ArrayList<PlayerModel> playerlist, int matchNum, int numBye) {
 		this.players = playerlist;
-		this.tourn = new TournamentRunnerModel2(playerlist, matchNum++);
+		this.numMatch = matchNum;
+		this.numBye = numBye;
 	}
+	public void setUser4(int roundNum) {
+		this.numRound = roundNum;
+	}
+	public void setUser5(ArrayList<PlayerModel> winners) {
+		this.winnerList = winners;
+	}
+	
 	public void setPics(ActionEvent event) {
 		System.out.println("Set Test");
 		imgView1.setImage(this.img);

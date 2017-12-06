@@ -22,7 +22,8 @@ public class TournamentRunnerModel2{
 	public int matchNum;
 	public PlayerModel bye;
 	public int sizeTourn;
-	public TournamentRunnerModel2(ArrayList<PlayerModel> players) {
+	public ArrayList<PlayerModel> winners = new ArrayList<PlayerModel>();
+	public TournamentRunnerModel2(ArrayList<PlayerModel> players, ArrayList<PlayerModel> winnerList) {
 		super();
 		//this.Players = players;
 		this.bye = new PlayerModel("bye");
@@ -37,8 +38,9 @@ public class TournamentRunnerModel2{
 		}
 		this.roundNum = 1;
 		this.matchNum = 1;
+		this.winners = winnerList;
 	}
-	public TournamentRunnerModel2(ArrayList<PlayerModel> players, int iMatch) {
+	public TournamentRunnerModel2(ArrayList<PlayerModel> players, ArrayList<PlayerModel> winnerList, int roundNum, int matchNum) {
 		super();
 		//this.Players = players;
 		this.bye = new PlayerModel("bye");
@@ -51,8 +53,64 @@ public class TournamentRunnerModel2{
 		}else if(players.size() <= 16) {
 			this.sizeTourn = 16;
 		}
+		this.matchNum = matchNum;
+		this.roundNum = roundNum;
+		if (this.matchNum == 0) {
+			this.matchNum = 1;
+		}
+		
+		
+		if (this.sizeTourn == 4) {
+			if(this.roundNum == 1 && this.matchNum == 3) {
+				this.roundNum++;
+				this.matchNum = 1;
+			} else if(this.roundNum == 2 && this.matchNum == 2) {
+				this.roundNum++;
+				this.matchNum = 1;
+			}
+		} else if(this.sizeTourn == 8) {
+			if(this.roundNum == 1 && this.matchNum == 5) {
+				this.roundNum++;
+				this.matchNum = 1;
+			} else if(this.roundNum == 2 && this.matchNum == 3) {
+				this.roundNum++;
+				this.matchNum = 1;
+			}else if(this.roundNum == 3 && this.matchNum == 2) {
+				this.roundNum++;
+				this.matchNum = 1;
+			}
+		}else if(this.sizeTourn == 16) {
+			if(this.roundNum == 1 && this.matchNum == 9) {
+				this.roundNum++;
+				this.matchNum = 1;
+			} else if(this.roundNum == 2 && this.matchNum == 5) {
+				this.roundNum++;
+				this.matchNum = 1;
+			}else if(this.roundNum == 3 && this.matchNum == 3) {
+				this.roundNum++;
+				this.matchNum = 1;
+			}else if(this.roundNum == 4 && this.matchNum == 2) {
+				this.roundNum++;
+				this.matchNum = 1;
+			}
+		}
+		this.winners = winnerList;
+	}
+	public TournamentRunnerModel2(ArrayList<PlayerModel> players, int iMatch, ArrayList<PlayerModel> winnerList) {
+		super();
+		this.bye = new PlayerModel("bye");
+		this.Match = new PlayerModel[16];
+		SeededTournamentBuilder(players);
+		if(players.size() <= 4) {
+			this.sizeTourn = 4;
+		}else if(players.size() <= 8) {
+			this.sizeTourn = 8;
+		}else if(players.size() <= 16) {
+			this.sizeTourn = 16;
+		}
 		this.roundNum = 1;
 		this.matchNum = iMatch;
+		this.winners = winnerList;
 	}
 
 	
@@ -70,15 +128,16 @@ public class TournamentRunnerModel2{
 							controller.setUser2(this.Match[0], this.Match[1]);
 							if(this.sizeTourn == 4) {
 								this.matchNum++;
-								controller.setUser3(Players4, this.matchNum);
+								controller.setUser3(Players4, this.matchNum, this.sizeTourn);
 							}else if(this.sizeTourn == 8) {
-								controller.setUser3(Players8, this.matchNum);
 								this.matchNum++;
+								controller.setUser3(Players8, this.matchNum, this.sizeTourn);
 							}else if(this.sizeTourn == 16) {
-								controller.setUser3(Players16, this.matchNum);
 								this.matchNum++;
+								controller.setUser3(Players16, this.matchNum, this.sizeTourn);
 							}
-							
+							controller.setUser5(this.roundNum);
+							controller.setUser4(this.winners);
 							Main.stage.setScene(new Scene(root, 1000,800));
 							Main.stage.show();
 						}catch(Exception e) {
@@ -94,15 +153,19 @@ public class TournamentRunnerModel2{
 							controller.setUser2(this.Match[0], this.Match[1]);
 							if (this.sizeTourn == 4) {
 								this.matchNum++;
+								controller.setUser5(this.winners);
 								controller.setUser3(this.Players4, this.matchNum);
+								controller.setUser4(this.roundNum);
 							}else if(this.sizeTourn == 8) {
 								this.matchNum++;
+								controller.setUser5(this.winners);
 								controller.setUser3(this.Players8, this.matchNum);
-								
+								controller.setUser4(this.roundNum);
 							}else if (this.sizeTourn == 16) {
 								this.matchNum++;
+								controller.setUser5(this.winners);
 								controller.setUser3(this.Players16, this.matchNum);
-								
+								controller.setUser4(this.roundNum);
 							}
 							
 							Main.stage.setScene(new Scene(root, 1000,800));
@@ -123,17 +186,19 @@ public class TournamentRunnerModel2{
 						ByeController controller = fxmlLoader.<ByeController>getController();
 						controller.setUser2(this.Match[2], this.Match[3]);
 						if(this.sizeTourn == 4) {
-							controller.setUser3(Players4, this.matchNum);
-							this.matchNum = 1;
-							this.roundNum++;
+							this.matchNum++;
+							controller.setUser3(Players4, this.matchNum, this.sizeTourn);
+							//this.matchNum = 1;
+							//this.roundNum++;
 						}else if(this.sizeTourn == 8) {
-							controller.setUser3(Players8, this.matchNum);
 							this.matchNum++;
+							controller.setUser3(Players8, this.matchNum, this.sizeTourn);
 						}else if(this.sizeTourn == 16) {
-							controller.setUser3(Players16, this.matchNum);
 							this.matchNum++;
+							controller.setUser3(Players16, this.matchNum, this.sizeTourn);
 						}
-						
+						controller.setUser5(this.roundNum);
+						controller.setUser4(this.winners);
 						Main.stage.setScene(new Scene(root, 1000,800));
 						Main.stage.show();
 					}catch(Exception e) {
@@ -148,16 +213,24 @@ public class TournamentRunnerModel2{
 						controller.setUser(this.sizeTourn);
 						controller.setUser2(this.Match[2], this.Match[3]);
 						if (this.sizeTourn == 4) {
+							this.matchNum++;
 							controller.setUser3(this.Players4, this.matchNum);
-							this.matchNum = 1;
-							this.roundNum++;
+							controller.setUser5(this.winners);
 							controller.setUser4(this.roundNum);
+							//this.matchNum = 1;
+							//this.roundNum++;
+							
 						}else if(this.sizeTourn == 8) {
+							this.matchNum++;
 							controller.setUser3(this.Players8, this.matchNum);
-							this.matchNum++;
+							controller.setUser5(this.winners);
+							controller.setUser4(this.roundNum);
+							
 						}else if (this.sizeTourn == 16) {
-							controller.setUser3(this.Players16, this.matchNum);
 							this.matchNum++;
+							controller.setUser3(this.Players16, this.matchNum);
+							controller.setUser5(this.winners);
+							controller.setUser4(this.roundNum);
 						}
 						
 						Main.stage.setScene(new Scene(root, 1000,800));
@@ -176,17 +249,20 @@ public class TournamentRunnerModel2{
 						ByeController controller = fxmlLoader.<ByeController>getController();
 						controller.setUser2(this.Match[4], this.Match[5]);
 						if(this.sizeTourn == 4) {
-							controller.setUser3(Players4, this.matchNum);
 							this.matchNum++;
-							this.roundNum++;
+							controller.setUser3(Players4, this.matchNum, this.sizeTourn);
+							
+							//this.roundNum++;
 						}else if(this.sizeTourn == 8) {
-							controller.setUser3(Players8, this.matchNum);
 							this.matchNum++;
+							controller.setUser3(Players8, this.matchNum, this.sizeTourn);
 						}else if(this.sizeTourn == 16) {
-							controller.setUser3(Players16, this.matchNum);
 							this.matchNum++;
+							controller.setUser3(Players16, this.matchNum, this.sizeTourn);
+							
 						}
-						
+						controller.setUser5(this.roundNum);
+						controller.setUser4(this.winners);
 						Main.stage.setScene(new Scene(root, 1000,800));
 						Main.stage.show();
 					}catch(Exception e) {
@@ -202,17 +278,20 @@ public class TournamentRunnerModel2{
 						controller.setUser(this.sizeTourn);
 						controller.setUser2(this.Match[4], this.Match[5]);
 						if (this.sizeTourn == 4) {
+							this.matchNum++;
 							controller.setUser3(this.Players4, this.matchNum);
-							this.matchNum++;
-							this.roundNum++;
+							
+							//this.roundNum++;
 						}else if(this.sizeTourn == 8) {
+							this.matchNum++;
 							controller.setUser3(this.Players8, this.matchNum);
-							this.matchNum++;
+							controller.setUser4(this.roundNum);
 						}else if (this.sizeTourn == 16) {
-							controller.setUser3(this.Players16, this.matchNum);
 							this.matchNum++;
+							controller.setUser3(this.Players16, this.matchNum);
+							controller.setUser4(this.roundNum);
 						}
-						
+						controller.setUser5(this.winners);
 						Main.stage.setScene(new Scene(root, 1000,800));
 						Main.stage.show();
 					}catch(Exception e) {
@@ -228,17 +307,19 @@ public class TournamentRunnerModel2{
 						ByeController controller = fxmlLoader.<ByeController>getController();
 						controller.setUser2(this.Match[6], this.Match[7]);
 						if(this.sizeTourn == 4) {
-							controller.setUser3(Players4, this.matchNum);
+							controller.setUser3(Players4, this.matchNum, this.sizeTourn);
 						}else if(this.sizeTourn == 8) {
-							controller.setUser3(Players8, this.matchNum);
+							this.matchNum++;
+							controller.setUser3(Players8, this.matchNum, this.sizeTourn);
+							//this.matchNum = 1;
+							//this.roundNum++;
+							
 						}else if(this.sizeTourn == 16) {
-							controller.setUser3(Players16, this.matchNum);
+							this.matchNum++;
+							controller.setUser3(Players16, this.matchNum, this.sizeTourn);
 						}
-						//this.matchNum++;
-						if (this.sizeTourn == 8) {
-							this.matchNum = 1;
-							this.roundNum++;
-						}
+						controller.setUser5(this.roundNum);
+						controller.setUser4(this.winners);
 						Main.stage.setScene(new Scene(root, 1000,800));
 						Main.stage.show();
 					}catch(Exception e) {
@@ -253,17 +334,21 @@ public class TournamentRunnerModel2{
 						controller.setUser(this.sizeTourn);
 						controller.setUser2(this.Match[6], this.Match[7]);
 						if (this.sizeTourn == 4) {
+							this.matchNum++;
 							controller.setUser3(this.Players4, this.matchNum);
+							controller.setUser4(this.roundNum);
 						}else if(this.sizeTourn == 8) {
+							this.matchNum++;
 							controller.setUser3(this.Players8, this.matchNum);
+							controller.setUser4(this.roundNum);
+							//this.matchNum = 1;
+							//this.roundNum++;
 						}else if (this.sizeTourn == 16) {
+							this.matchNum++;
 							controller.setUser3(this.Players16, this.matchNum);
+							controller.setUser4(this.roundNum);
 						}
-						this.matchNum++;
-						if (this.sizeTourn == 8) {
-							this.matchNum = 1;
-							this.roundNum++;
-						}
+						controller.setUser5(this.winners);
 						Main.stage.setScene(new Scene(root, 1000,800));
 						Main.stage.show();
 					}catch(Exception e) {
@@ -279,13 +364,17 @@ public class TournamentRunnerModel2{
 					ByeController controller = fxmlLoader.<ByeController>getController();
 					controller.setUser2(this.Match[8], this.Match[9]);
 					if(this.sizeTourn == 4) {
-						controller.setUser3(Players4, this.matchNum);
+						this.matchNum++;
+						controller.setUser3(Players4, this.matchNum, this.sizeTourn);
 					}else if(this.sizeTourn == 8) {
-						controller.setUser3(Players8, this.matchNum);
+						this.matchNum++;
+						controller.setUser3(Players8, this.matchNum, this.sizeTourn);
 					}else if(this.sizeTourn == 16) {
-						controller.setUser3(Players16, this.matchNum);
+						this.matchNum++;
+						controller.setUser3(Players16, this.matchNum, this.sizeTourn);
 					}
-					this.matchNum++;
+					controller.setUser5(this.roundNum);
+					controller.setUser4(this.winners);
 					Main.stage.setScene(new Scene(root, 1000,800));
 					Main.stage.show();
 					}catch(Exception e) {
@@ -300,13 +389,19 @@ public class TournamentRunnerModel2{
 						controller.setUser(this.sizeTourn);
 						controller.setUser2(this.Match[8], this.Match[9]);
 						if (this.sizeTourn == 4) {
+							this.matchNum++;
 							controller.setUser3(this.Players4, this.matchNum);
+							controller.setUser4(this.roundNum);
 						}else if(this.sizeTourn == 8) {
+							this.matchNum++;
 							controller.setUser3(this.Players8, this.matchNum);
+							controller.setUser4(this.roundNum);
 						}else if (this.sizeTourn == 16) {
+							this.matchNum++;
 							controller.setUser3(this.Players16, this.matchNum);
+							controller.setUser4(this.roundNum);
 						}
-						this.matchNum++;
+						controller.setUser5(this.winners);
 						Main.stage.setScene(new Scene(root, 1000,800));
 						Main.stage.show();
 					}catch(Exception e) {
@@ -322,13 +417,15 @@ public class TournamentRunnerModel2{
 					ByeController controller = fxmlLoader.<ByeController>getController();
 					controller.setUser2(this.Match[10], this.Match[11]);
 					if(this.sizeTourn == 4) {
-						controller.setUser3(Players4, this.matchNum);
+						controller.setUser3(Players4, this.matchNum, this.sizeTourn);
 					}else if(this.sizeTourn == 8) {
-						controller.setUser3(Players8, this.matchNum);
+						controller.setUser3(Players8, this.matchNum, this.sizeTourn);
 					}else if(this.sizeTourn == 16) {
-						controller.setUser3(Players16, this.matchNum);
+						this.matchNum++;
+						controller.setUser3(Players16, this.matchNum, this.sizeTourn);
 					}
-					this.matchNum++;
+					controller.setUser5(this.roundNum);
+					controller.setUser4(this.winners);
 					Main.stage.setScene(new Scene(root, 1000,800));
 					Main.stage.show();
 					}catch(Exception e) {
@@ -344,11 +441,16 @@ public class TournamentRunnerModel2{
 						controller.setUser2(this.Match[10], this.Match[11]);
 						if (this.sizeTourn == 4) {
 							controller.setUser3(this.Players4, this.matchNum);
+							controller.setUser4(this.roundNum);
 						}else if(this.sizeTourn == 8) {
 							controller.setUser3(this.Players8, this.matchNum);
+							controller.setUser4(this.roundNum);
 						}else if (this.sizeTourn == 16) {
+							this.matchNum++;
 							controller.setUser3(this.Players16, this.matchNum);
+							controller.setUser4(this.roundNum);
 						}
+						controller.setUser5(this.winners);
 						this.matchNum++;
 						Main.stage.setScene(new Scene(root, 1000,800));
 						Main.stage.show();
@@ -365,13 +467,15 @@ public class TournamentRunnerModel2{
 					ByeController controller = fxmlLoader.<ByeController>getController();
 					controller.setUser2(this.Match[12], this.Match[13]);
 					if(this.sizeTourn == 4) {
-						controller.setUser3(Players4, this.matchNum);
+						controller.setUser3(Players4, this.matchNum, this.sizeTourn);
 					}else if(this.sizeTourn == 8) {
-						controller.setUser3(Players8, this.matchNum);
+						controller.setUser3(Players8, this.matchNum, this.sizeTourn);
 					}else if(this.sizeTourn == 16) {
-						controller.setUser3(Players16, this.matchNum);
+						this.matchNum++;
+						controller.setUser3(Players16, this.matchNum, this.sizeTourn);
 					}
-					this.matchNum++;
+					controller.setUser5(this.roundNum);
+					controller.setUser4(this.winners);
 					Main.stage.setScene(new Scene(root, 1000,800));
 					Main.stage.show();
 					}catch(Exception e) {
@@ -387,12 +491,16 @@ public class TournamentRunnerModel2{
 						controller.setUser2(this.Match[12], this.Match[13]);
 						if (this.sizeTourn == 4) {
 							controller.setUser3(this.Players4, this.matchNum);
+							controller.setUser4(this.roundNum);
 						}else if(this.sizeTourn == 8) {
 							controller.setUser3(this.Players8, this.matchNum);
+							controller.setUser4(this.roundNum);
 						}else if (this.sizeTourn == 16) {
+							this.matchNum++;
 							controller.setUser3(this.Players16, this.matchNum);
+							controller.setUser4(this.roundNum);
 						}
-						this.matchNum++;
+						controller.setUser5(this.winners);
 						Main.stage.setScene(new Scene(root, 1000,800));
 						Main.stage.show();
 					}catch(Exception e) {
@@ -408,17 +516,16 @@ public class TournamentRunnerModel2{
 					ByeController controller = fxmlLoader.<ByeController>getController();
 					controller.setUser2(this.Match[14], this.Match[15]);
 					if(this.sizeTourn == 4) {
-						controller.setUser3(Players4, this.matchNum);
+						controller.setUser3(Players4, this.matchNum, this.sizeTourn);
 					}else if(this.sizeTourn == 8) {
-						controller.setUser3(Players8, this.matchNum);
+						this.matchNum++;
+						controller.setUser3(Players8, this.matchNum, this.sizeTourn);
 					}else if(this.sizeTourn == 16) {
-						controller.setUser3(Players16, this.matchNum);
+						this.matchNum++;
+						controller.setUser3(Players16, this.matchNum, this.sizeTourn);
 					}
-					this.matchNum++;
-					if (this.sizeTourn == 16) {
-						this.matchNum = 1;
-						this.roundNum++;
-					}
+					controller.setUser4(this.winners);
+					controller.setUser5(this.roundNum);
 					Main.stage.setScene(new Scene(root, 1000,800));
 					Main.stage.show();
 					}catch(Exception e) {
@@ -434,16 +541,20 @@ public class TournamentRunnerModel2{
 						controller.setUser2(this.Match[14], this.Match[15]);
 						if (this.sizeTourn == 4) {
 							controller.setUser3(this.Players4, this.matchNum);
+							controller.setUser4(this.roundNum);
 						}else if(this.sizeTourn == 8) {
+							this.matchNum++;
 							controller.setUser3(this.Players8, this.matchNum);
+							controller.setUser4(this.roundNum);
 						}else if (this.sizeTourn == 16) {
+							this.matchNum++;
 							controller.setUser3(this.Players16, this.matchNum);
+							controller.setUser4(this.roundNum);
+							
+							
+							
 						}
-						if (this.sizeTourn == 16) {
-							this.matchNum = 1;
-							this.roundNum++;
-						}
-						
+						controller.setUser5(this.winners);
 						Main.stage.setScene(new Scene(root, 1000,800));
 						Main.stage.show();
 					}catch(Exception e) {
@@ -462,17 +573,17 @@ public class TournamentRunnerModel2{
 						ByeController controller = fxmlLoader.<ByeController>getController();
 						controller.setUser2(this.Match[0], this.Match[1]);
 						if(this.sizeTourn == 4) {
-							controller.setUser3(Players4, this.matchNum);
-							this.matchNum = 1;
-							this.roundNum++;
+							this.matchNum++;
+							controller.setUser3(Players4, this.matchNum, this.sizeTourn);
 						}else if(this.sizeTourn == 8) {
-							controller.setUser3(Players8, this.matchNum);
 							this.matchNum++;
+							controller.setUser3(Players8, this.matchNum, this.sizeTourn);
 						}else if(this.sizeTourn == 16) {
-							controller.setUser3(Players16, this.matchNum);
 							this.matchNum++;
+							controller.setUser3(Players16, this.matchNum, this.sizeTourn);
 						}
-						
+						controller.setUser5(this.roundNum);
+						controller.setUser4(this.winners);
 						Main.stage.setScene(new Scene(root, 1000,800));
 						Main.stage.show();
 						}catch(Exception e) {
@@ -486,14 +597,22 @@ public class TournamentRunnerModel2{
 							ChoosePic controller = fxmlLoader.<ChoosePic>getController();
 							controller.setUser(this.sizeTourn);
 							controller.setUser2(this.Match[0], this.Match[1]);
-							if (this.sizeTourn == 4) {
+							if (this.sizeTourn == 4) {;
+								this.matchNum++;
 								controller.setUser3(this.Players4, this.matchNum);
+								
+								controller.setUser4(this.roundNum);
 							}else if(this.sizeTourn == 8) {
+								this.matchNum++;
 								controller.setUser3(this.Players8, this.matchNum);
+								controller.setUser4(this.roundNum);
 							}else if (this.sizeTourn == 16) {
+								this.matchNum++;
 								controller.setUser3(this.Players16, this.matchNum);
+								controller.setUser4(this.roundNum);
 							}
-							this.matchNum++;
+
+							controller.setUser5(this.winners);
 							Main.stage.setScene(new Scene(root, 1000,800));
 							Main.stage.show();
 						}catch(Exception e) {
@@ -509,13 +628,17 @@ public class TournamentRunnerModel2{
 						ByeController controller = fxmlLoader.<ByeController>getController();
 						controller.setUser2(this.Match[2], this.Match[3]);
 						if(this.sizeTourn == 4) {
-							controller.setUser3(Players4, this.matchNum);
+							this.matchNum++;
+							controller.setUser3(Players4, this.matchNum, this.sizeTourn);
 						}else if(this.sizeTourn == 8) {
-							controller.setUser3(Players8, this.matchNum);
+							this.matchNum++;
+							controller.setUser3(Players8, this.matchNum, this.sizeTourn);
 						}else if(this.sizeTourn == 16) {
-							controller.setUser3(Players16, this.matchNum);
+							this.matchNum++;
+							controller.setUser3(Players16, this.matchNum, this.sizeTourn);
 						}
-						this.matchNum++;
+						controller.setUser5(this.roundNum);
+						controller.setUser4(this.winners);
 						Main.stage.setScene(new Scene(root, 1000,800));
 						Main.stage.show();
 						}catch(Exception e) {
@@ -530,13 +653,19 @@ public class TournamentRunnerModel2{
 							controller.setUser(this.sizeTourn);
 							controller.setUser2(this.Match[2], this.Match[3]);
 							if (this.sizeTourn == 4) {
+								this.matchNum++;
+								controller.setUser4(this.roundNum);
 								controller.setUser3(this.Players4, this.matchNum);
 							}else if(this.sizeTourn == 8) {
+								this.matchNum++;
+								controller.setUser4(this.roundNum);
 								controller.setUser3(this.Players8, this.matchNum);
 							}else if (this.sizeTourn == 16) {
+								this.matchNum++;
+								controller.setUser4(this.roundNum);
 								controller.setUser3(this.Players16, this.matchNum);
 							}
-							this.matchNum++;
+							controller.setUser5(this.winners);
 							Main.stage.setScene(new Scene(root, 1000,800));
 							Main.stage.show();
 						}catch(Exception e) {
@@ -552,13 +681,17 @@ public class TournamentRunnerModel2{
 						ByeController controller = fxmlLoader.<ByeController>getController();
 						controller.setUser2(this.Match[4], this.Match[5]);
 						if(this.sizeTourn == 4) {
-							controller.setUser3(Players4,this.matchNum);
+							this.matchNum++;
+							controller.setUser3(Players4,this.matchNum, this.sizeTourn);
 						}else if(this.sizeTourn == 8) {
-							controller.setUser3(Players8, this.matchNum);
+							this.matchNum++;
+							controller.setUser3(Players8, this.matchNum, this.sizeTourn);
 						}else if(this.sizeTourn == 16) {
-							controller.setUser3(Players16, this.matchNum);
+							this.matchNum++;
+							controller.setUser3(Players16, this.matchNum, this.sizeTourn);
 						}
-						this.matchNum++;
+						controller.setUser5(this.roundNum);
+						controller.setUser4(this.winners);
 						Main.stage.setScene(new Scene(root, 1000,800));
 						Main.stage.show();
 						}catch(Exception e) {
@@ -573,13 +706,19 @@ public class TournamentRunnerModel2{
 							controller.setUser(this.sizeTourn);
 							controller.setUser2(this.Match[4], this.Match[5]);
 							if (this.sizeTourn == 4) {
+								this.matchNum++;
+								controller.setUser4(this.roundNum);
 								controller.setUser3(this.Players4, this.matchNum);
 							}else if(this.sizeTourn == 8) {
+								this.matchNum++;
+								controller.setUser4(this.roundNum);
 								controller.setUser3(this.Players8, this.matchNum);
 							}else if (this.sizeTourn == 16) {
+								this.matchNum++;
+								controller.setUser4(this.roundNum);
 								controller.setUser3(this.Players16, this.matchNum);
 							}
-							this.matchNum++;
+							controller.setUser5(this.winners);
 							Main.stage.setScene(new Scene(root, 1000,800));
 							Main.stage.show();
 						}catch(Exception e) {
@@ -595,14 +734,17 @@ public class TournamentRunnerModel2{
 						ByeController controller = fxmlLoader.<ByeController>getController();
 						controller.setUser2(this.Match[6], this.Match[7]);
 						if(this.sizeTourn == 4) {
-							controller.setUser3(Players4, this.matchNum);
+							this.matchNum++;
+							controller.setUser3(Players4, this.matchNum, this.sizeTourn);
 						}else if(this.sizeTourn == 8) {
-							controller.setUser3(Players8, this.matchNum);
+							this.matchNum++;
+							controller.setUser3(Players8, this.matchNum, this.sizeTourn);
 						}else if(this.sizeTourn == 16) {
-							controller.setUser3(Players16, this.matchNum);
+							this.matchNum++;
+							controller.setUser3(Players16, this.matchNum, this.sizeTourn);
 						}
-						this.matchNum++;
-						this.roundNum++;
+						controller.setUser5(this.roundNum);
+						controller.setUser4(this.winners);
 						Main.stage.setScene(new Scene(root, 1000,800));
 						Main.stage.show();
 						}catch(Exception e) {
@@ -617,14 +759,19 @@ public class TournamentRunnerModel2{
 							controller.setUser(this.sizeTourn);
 							controller.setUser2(this.Match[6], this.Match[7]);
 							if (this.sizeTourn == 4) {
+								this.matchNum++;
+								controller.setUser4(this.roundNum);
 								controller.setUser3(this.Players4, this.matchNum);
 							}else if(this.sizeTourn == 8) {
+								this.matchNum++;
+								controller.setUser4(this.roundNum);
 								controller.setUser3(this.Players8, this.matchNum);
 							}else if (this.sizeTourn == 16) {
+								this.matchNum++;
+								controller.setUser4(this.roundNum);
 								controller.setUser3(this.Players16, this.matchNum);
 							}
-							this.matchNum = 1;
-							this.roundNum++;
+							controller.setUser5(this.winners);
 							Main.stage.setScene(new Scene(root, 1000,800));
 							Main.stage.show();
 						}catch(Exception e) {
@@ -643,15 +790,17 @@ public class TournamentRunnerModel2{
 						controller.setUser2(this.Match[0], this.Match[1]);
 						if(this.sizeTourn == 4) {
 							this.matchNum++;
-							controller.setUser3(Players4, this.matchNum);
+							controller.setUser3(Players4, this.matchNum, this.sizeTourn);
 						}else if(this.sizeTourn == 8) {
 							this.matchNum++;
-							controller.setUser3(Players8, this.matchNum);
+							controller.setUser3(Players8, this.matchNum, this.sizeTourn);
 						}else if(this.sizeTourn == 16) {
-							controller.setUser3(Players16, this.matchNum);
 							this.matchNum++;
+							controller.setUser3(Players16, this.matchNum, this.sizeTourn);
+							
 						}
-						
+						controller.setUser5(this.roundNum);
+						controller.setUser4(this.winners);
 						Main.stage.setScene(new Scene(root, 1000,800));
 						Main.stage.show();
 						}catch(Exception e) {
@@ -667,15 +816,18 @@ public class TournamentRunnerModel2{
 							controller.setUser2(this.Match[0], this.Match[1]);
 							if (this.sizeTourn == 4) {
 								this.matchNum++;
+								controller.setUser4(this.roundNum);
 								controller.setUser3(this.Players4, this.matchNum);
 							}else if(this.sizeTourn == 8) {
 								this.matchNum++;
+								controller.setUser4(this.roundNum);
 								controller.setUser3(this.Players8, this.matchNum);
 							}else if (this.sizeTourn == 16) {
 								this.matchNum++;
+								controller.setUser4(this.roundNum);
 								controller.setUser3(this.Players16, this.matchNum);
 							}
-							
+							controller.setUser5(this.winners);
 							Main.stage.setScene(new Scene(root, 1000,800));
 							Main.stage.show();
 						}catch(Exception e) {
@@ -692,15 +844,17 @@ public class TournamentRunnerModel2{
 						controller.setUser2(this.Match[2], this.Match[3]);
 						if(this.sizeTourn == 4) {
 							this.matchNum++;
-							controller.setUser3(Players4, this.matchNum);
+							controller.setUser3(Players4, this.matchNum, this.sizeTourn);
 						}else if(this.sizeTourn == 8) {
 							this.matchNum++;
-							controller.setUser3(Players8, this.matchNum);
+							controller.setUser3(Players8, this.matchNum, this.sizeTourn);
+							
 						}else if(this.sizeTourn == 16) {
 							this.matchNum++;
-							controller.setUser3(Players16, this.matchNum);
+							controller.setUser3(Players16, this.matchNum, this.sizeTourn);
 						}
-						
+						controller.setUser5(this.roundNum);
+						controller.setUser4(this.winners);
 						Main.stage.setScene(new Scene(root, 1000,800));
 						Main.stage.show();
 						}catch(Exception e) {
@@ -716,17 +870,18 @@ public class TournamentRunnerModel2{
 							controller.setUser2(this.Match[2], this.Match[3]);
 							if (this.sizeTourn == 4) {
 								this.matchNum++;
+								controller.setUser4(this.roundNum);
 								controller.setUser3(this.Players4, this.matchNum);
 							}else if(this.sizeTourn == 8) {
 								this.matchNum++;
+								controller.setUser4(this.roundNum);
 								controller.setUser3(this.Players8, this.matchNum);
 							}else if (this.sizeTourn == 16) {
 								this.matchNum++;
+								controller.setUser4(this.roundNum);
 								controller.setUser3(this.Players16, this.matchNum);
 							}
-							
-							this.roundNum++;
-							this.matchNum = 1;
+							controller.setUser5(this.winners);
 							Main.stage.setScene(new Scene(root, 1000,800));
 							Main.stage.show();
 						}catch(Exception e) {
@@ -735,6 +890,62 @@ public class TournamentRunnerModel2{
 					}
 					
 					
+				}
+			}else if(this.roundNum == 4) {
+				if (this.matchNum == 1) {
+					if (this.Match[0].getName().equals("bye") || this.Match[1].getName().equals("bye")) {
+						try {
+						Parent root;
+						FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/byeOption.fxml"));
+						root = (Parent)fxmlLoader.load(); 
+						ByeController controller = fxmlLoader.<ByeController>getController();
+						controller.setUser2(this.Match[0], this.Match[1]);
+						if(this.sizeTourn == 4) {
+							this.matchNum++;
+							controller.setUser3(Players4, this.matchNum, this.sizeTourn);
+						}else if(this.sizeTourn == 8) {
+							this.matchNum++;
+							controller.setUser3(Players8, this.matchNum, this.sizeTourn);
+							
+						}else if(this.sizeTourn == 16) {
+							this.matchNum++;
+							controller.setUser3(Players16, this.matchNum, this.sizeTourn);
+						}
+						controller.setUser5(this.roundNum);
+						controller.setUser4(this.winners);
+						Main.stage.setScene(new Scene(root, 1000,800));
+						Main.stage.show();
+						}catch(Exception e) {
+							e.printStackTrace();
+						}
+					}else {
+						try {
+							Parent root;
+							FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/choosePic.fxml")); 
+							root = (Parent)fxmlLoader.load(); 
+							ChoosePic controller = fxmlLoader.<ChoosePic>getController();
+							controller.setUser(this.sizeTourn);
+							controller.setUser2(this.Match[0], this.Match[1]);
+							if (this.sizeTourn == 4) {
+								this.matchNum++;
+								controller.setUser4(this.roundNum);
+								controller.setUser3(this.Players4, this.matchNum);
+							}else if(this.sizeTourn == 8) {
+								this.matchNum++;
+								controller.setUser4(this.roundNum);
+								controller.setUser3(this.Players8, this.matchNum);
+							}else if (this.sizeTourn == 16) {
+								this.matchNum++;
+								controller.setUser4(this.roundNum);
+								controller.setUser3(this.Players16, this.matchNum);
+							}
+							controller.setUser5(this.winners);
+							Main.stage.setScene(new Scene(root, 1000,800));
+							Main.stage.show();
+						}catch(Exception e) {
+							e.printStackTrace();
+						}
+					}
 				}
 			}
 			

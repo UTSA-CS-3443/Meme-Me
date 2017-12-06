@@ -26,3 +26,4 @@ public class CongratsController implements EventHandler<ActionEvent> {
 		System.exit(0);
 	}	
 }
+

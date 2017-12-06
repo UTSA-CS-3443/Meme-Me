@@ -52,10 +52,13 @@ public class TournCreate {
 	private Group group;
 	private int sizeTourn;
 	private int numMatch;
+	private int numBye;
 	ArrayList<PlayerModel[]> Matches;
 	private PlayerModel play1;
 	private PlayerModel play2;
+	int roundNum;
 	ArrayList<PlayerModel> players = new ArrayList<PlayerModel>();
+	ArrayList<PlayerModel> winnerList = new ArrayList<PlayerModel>();
 	
 	public void setPicture(ActionEvent event) {
 		imgView.setImage(img);
@@ -80,9 +83,16 @@ public class TournCreate {
 		this.play1 = player1;
 		this.play2 = player2;
 	}
-	public void setUser3(ArrayList<PlayerModel> playerlist, int matchNum) {
+	public void setUser3(ArrayList<PlayerModel> playerlist, int matchNum, int numBye) {
 		this.players = playerlist;
 		this.numMatch = matchNum;
+		this.numBye = numBye;
+	}
+	public void setUser4(int roundNum) {
+		this.roundNum = roundNum;
+	}
+	public void setUser5(ArrayList<PlayerModel> winners) {
+		this.winnerList = winners;
 	}
 	
 	public void saveFunction(ActionEvent event) {
@@ -142,6 +152,7 @@ public class TournCreate {
 			ex.printStackTrace();
 		}
 	}	
+	//@FXML
 	public void voteHandle(ActionEvent event) {
 		if(!image1.equals(null) && !image2.equals(null)) {
 			try {
@@ -151,7 +162,10 @@ public class TournCreate {
 				VotePage controller = fxmlLoader.<VotePage>getController();
 				controller.setUser1(this.image1, this.image2, this.sizeTourn);
 				controller.setUser2(this.play1, this.play2);
-				controller.setUser3(this.players, this.numMatch);
+				controller.setUser3(this.players, this.numMatch, this.numBye);
+				controller.setUser4(this.roundNum);
+				controller.setUser5(this.winnerList);
+
 				Main.stage.setScene(new Scene(root, 1250,800));
 				Main.stage.show();
 			}
