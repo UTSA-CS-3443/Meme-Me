@@ -1,37 +1,25 @@
 package controller;
 
-import java.awt.image.BufferedImage;
-import java.awt.image.RenderedImage;
-
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-
-
 import application.Main;
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-
 import javafx.fxml.FXMLLoader;
-
 import javafx.geometry.Insets;
-
 import javafx.scene.Group;
-
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.SnapshotParameters;
-
 import javafx.scene.canvas.Canvas;
-
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.WritableImage;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
@@ -43,13 +31,20 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import java.util.ArrayList;
+/**
+ * A class that implements the free play portion of the game, users can create their own meme 
+ * freely without participating in any competitions
+ * @author Katie Yarbough: Team Lead
+ * @author Danielle Lawrence
+ * @author Cheyenne Sanchez
+ * @author Paul Swenson
+ */
 public class CreateController implements EventHandler<ActionEvent>{
 	
 	@FXML
 	public Canvas canvas;
 	@FXML
 	private StackPane pane;
-	//TODO: ToolPane EDIT
 	 @FXML
 	 private Button clear;
 	 @FXML
@@ -64,17 +59,18 @@ public class CreateController implements EventHandler<ActionEvent>{
 	 private TextField tf3;
 	 @FXML 
 	 private Button viewMemes;
-	//TODO: FILE 
-	
 	public ImageView imgView;
-	
-
 	public ArrayList<Image> imagelist = new ArrayList<Image>();
 	
 	@Override
 	public void handle(ActionEvent event) {		}
 		
 	//File Menu	
+	/**
+	 * A method that opens and views a jpg, png, or gif image file
+	 * @param event Event to occur
+	 * @throws IOException An exception to be thrown
+	 */
 	@FXML
 	public void openFunction(ActionEvent event) throws IOException {		
 		FileChooser choice = new FileChooser();
@@ -90,6 +86,10 @@ public class CreateController implements EventHandler<ActionEvent>{
 			pane.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
 		}
 	}	
+	/**
+	 * A method that saves a snapshot of an image as a png file
+	 * @param event Event to occur
+	 */
 	public void savefunc(ActionEvent event) {
 		Image image = pane.snapshot(new SnapshotParameters(), null);
 		FileChooser fileChooser = new FileChooser();
@@ -104,6 +104,11 @@ public class CreateController implements EventHandler<ActionEvent>{
             }
         }
 	}
+	/**
+	 * A method that will allow user to open their newly created memes saved to 
+	 * their file system
+	 * @param event An event to occur
+	 */
 	public void viewMeme(ActionEvent event) {
 		System.out.println("memeView pressed");
 		try {
@@ -117,13 +122,20 @@ public class CreateController implements EventHandler<ActionEvent>{
 		}
 	}
 	
+	/**
+	 * An event that will close the application
+	 * @param event Event to occur once clicked
+	 */
 	public void closeFunction(ActionEvent event) {
 		Platform.exit();
 		System.exit(0);
 	}
 
 	//Edit Menu	
-		
+	/**
+	 * An event method that will clear the image of any edits
+	 * @param event Event to occur once clicked
+	 */
 	public void clearFunction(ActionEvent event) {
 		imgView.setImage(null);
 		tf1.clear();
@@ -133,6 +145,10 @@ public class CreateController implements EventHandler<ActionEvent>{
 		System.out.print("Cleared All");		
 
 	} 
+	/**
+	 * Inserts a line of text user input into text areas on top, middle, or bottom of the images
+	 * @param event Event to occur once clicked
+	 */
 	public void insertLine(ActionEvent event) {
 		try {
 			

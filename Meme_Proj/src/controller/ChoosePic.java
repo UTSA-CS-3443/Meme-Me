@@ -81,20 +81,34 @@ public class ChoosePic implements EventHandler<ActionEvent>{
 		this.play2 = player2;
 	}
 	/**
-	 * A method 
-	 * @param playerlist
-	 * @param matchNum
+	 * A method to set players in a list and give a match number
+	 * @param playerlist An array list of Playermodel to describe a player list
+	 * @param matchNum An integer specifying a match number
 	 */
 	public void setUser3(ArrayList<PlayerModel> playerlist, int matchNum) {
 		this.players = playerlist;
 		this.matchIndex = matchNum;
 	}
+	/**
+	 * A method that sets a game round number
+	 * @param roundNum An integer specifying a number of rounds
+	 */
 	public void setUser4(int roundNum) {
 		this.roundNum = roundNum;
 	}
+	
+	/**
+	 * A method that will determine a winner from a reference to the PlayerModel 
+	 * @param winners An reference to the PlayerModel
+	 */
 	public void setUser5(ArrayList<PlayerModel> winners) {
 		this.winnerList = winners;
 	}
+	/**
+	 * A method that will open a picture to view from user's file system
+	 * @param event An event to occur
+	 * @throws IOException An exception to be thrown
+	 */
 	public void openFunction(ActionEvent event) throws IOException {		
 		FileChooser choice = new FileChooser();
 		choice.getExtensionFilters().addAll(new 
@@ -108,10 +122,14 @@ public class ChoosePic implements EventHandler<ActionEvent>{
 			imgView.setImage(img);
 			saved = img;
 		}
-	}
+	}	
+	
+	/**
+	 * A method to close a the window entirely and exit from program 
+	 * @param event An event to occur
+	 */
 	public void closeFunction(ActionEvent event) {
 		Platform.exit();
 		System.exit(0);
 	}
-
 }

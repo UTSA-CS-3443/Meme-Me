@@ -1,10 +1,4 @@
-/**
- * Mode Controller displays modes for players to choose and links to the Create Meme page
- * @author Danielle Lawrence
- */
 package controller;
-
-
 import application.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -12,16 +6,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-
-
+/**
+ * Mode Controller displays modes for players to choose and links to the Create Meme page
+ * @author Katie Yarbough: Team Lead
+ * @author Danielle Lawrence
+ * @author Cheyenne Sanchez
+ * @author Paul Swenson
+ */
 public class ModeController implements EventHandler<ActionEvent> {
-	
 
-	private	Button free;
-	private	Button tournament;
-	private	Button playervsplayer;
-
-	
+	/**
+	 * A method that once "Free Play Mode"is clicked the game will take you to the free play mode
+	 */
 	@Override
 	public void handle(ActionEvent arg0) {
 		try {
@@ -30,13 +26,15 @@ public class ModeController implements EventHandler<ActionEvent> {
 			Main.stage.setScene(new Scene(root, 1100, 850));
 			Main.stage.show();
 		} catch(Exception e) {
-			e.printStackTrace();
-			
+			e.printStackTrace();			
 		}
 		System.out.println("Free Play Clicked");
 	}
-
 	
+	/**
+	 * 
+	 * @param event
+	 */
 	public void tournamenthandle(ActionEvent event) {
 		try {
 
